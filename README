@@ -1,0 +1,20 @@
+# Switcheroo
+
+![Switcheroo](https://github.com/AnJ95/switcheroo/blob/master/img/favicon.png)
+
+## Introduction
+A web interface, aiming to make a Raspberry Pi the center of your own SmartHome, controlled from your mobile phone.
+
+## Technologies
+Functional Core is a [apache php server](https://httpd.apache.org/) and [wiringPi](http://wiringpi.com/) for pin access.
+
+The interface is a plain HTML/CSS/JavaScript web app using only [jQuery](https://jquery.com/).
+
+
+## Setup
+* Install [Apache and PHP](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md)
+* Install [WiringPi](http://wiringpi.com/download-and-install/)
+* Clone this repository to */var/www/Switcheroo* or similar
+* Set credentials in php config
+* In your local network, go to the website *[Your PI's IP]*/Switcheroo
+* Enter the password *down, a, down, a, right, down, right, down* to get access
