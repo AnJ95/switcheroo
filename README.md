@@ -18,3 +18,12 @@ The interface is a plain HTML/CSS/JavaScript web app using only [jQuery](https:/
 * Set credentials in php config
 * In your local network, go to the website *[Your PI's IP]*/Switcheroo
 * Enter the password *down, a, down, a, right, down, right, down* to get access
+
+
+## User warning
+This interface is **NOT SAFE**. It involves direct shell access via php (shell and php are words that should never occur in the same sentence). Since this project is fun-only I am probably never going to make it fully safe.
+
+Here are some things you can do to improve the security never the less:
+* Use SHTTP
+* Don't put your webserver online, only use the local network
+* Update your PHP and check your PHP settings!
