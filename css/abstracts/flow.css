@@ -1,0 +1,15 @@
+.login-section section, .flow {
+  height: 100%;
+}
+
+.flow .half:nth-child(2n){
+  float: right;
+}
+
+.half {
+  float: left;
+	display: block;
+  width: 47%;
+  margin-left: 0;
+  margin-right: 0;
+}

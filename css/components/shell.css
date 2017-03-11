@@ -1,0 +1,39 @@
+.shell {
+  background-color: #000;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  color: #FFF;
+  font-family: Monospace;
+}
+
+.shell__content {
+  overflow-y: scroll;
+  line-height: 17px;
+  font-size: 15px;
+  position: absolute;
+  bottom: 30px;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.shell__content b {
+  color: #5F5;
+}
+
+.shell__input {
+  background-color: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  line-height: 30px;
+  font-size: 22px;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #fff;
+  color: #FFF;
+  font-family: Monospace;
+}

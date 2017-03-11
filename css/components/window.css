@@ -1,0 +1,21 @@
+.window {
+  position: fixed;
+  overflow-y: scroll;
+  left: 0;
+  right: 0;
+  top: 15%;
+  bottom: 0;
+  background-color: #EEE;
+  z-index: 90;
+  transition: 0.4s transform ease-in-out;
+  transform: translateY(-100%);
+}
+
+.window__inner {
+  height: 100%;
+  padding: 4%;
+}
+
+.window.active {
+  transform: translateY(0%);
+}

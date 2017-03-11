@@ -1,0 +1,42 @@
+.pin-line {
+  clear: left;
+  margin-top: 5px;
+  height: 36px;
+  background-color: #FFF;
+}
+
+.pin-line > div {
+  float: left;
+  height: 36px;
+  line-height: 36px;
+}
+
+.pin-line > .pin-line__nothing {
+  min-height: 1px;
+  width: 36px;
+}
+
+.pin-line > .pin-line__id {
+  text-align: center;
+  background-color: #e58c32;
+  width: 36px;
+  color: #fff;
+}
+
+.pin-line > .pin-line__name {
+  margin-left: 10px;
+  width: 45px;
+  font-size: 0.5em;
+}
+
+.pin-line > .pin-line__dir {
+  margin-left: 10px;
+  font-size: 0.5em;
+}
+
+.pin-line > .pin-line__val {
+  text-align: center;
+  float: right;
+  width: 36px;
+  transform: scale(0.4) translateY(0px);
+}
