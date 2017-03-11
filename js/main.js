@@ -13,11 +13,6 @@ function preloadSound(src) {
   return sound;
 }
 
-
-
-
-
-
 function sendCommand(btn) {
   $.ajax({
 		url: "php/cmd.php",
