@@ -9,7 +9,12 @@ function auth() {
 }
 
 function correctHash ($hash) {
-  if ($hash == sha1("down a down a right down right down")) {
+  // is sha1-encrypted password in form:
+  // ((up|right|down|left|a) )*(up|right|down|left|a)
+  // or for humans:
+  // up, right, down, left, a; seperated by spaces
+  $requiredHash = file_get_contents("../safe/pwd");
+  if ($hash == $requiredHash) {
     return true;
   }
   return false;
