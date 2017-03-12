@@ -1,5 +1,6 @@
 <?php
 
+include("app.php");
 include("auth.php");
 
 if (auth() < 1) {

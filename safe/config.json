@@ -1,0 +1,10 @@
+{
+  "pi" : {
+    "ip" : "192.168.1.21",
+    "path" : "Switcheroo",
+    "version" : "3B"
+  },
+  "webInterface" : {
+    "authHash" : "9e676808fe39477469216a1e5e33c9f76f2ae465"
+  }
+}

@@ -1,5 +1,9 @@
 <?php
 
+require_once("app.php");
+$app = new App();
+
+
 $AUTH_LEVEL = 0;
 
 function auth() {
@@ -9,11 +13,14 @@ function auth() {
 }
 
 function correctHash ($hash) {
+  global $app;
+
   // is sha1-encrypted password in form:
   // ((up|right|down|left|a) )*(up|right|down|left|a)
   // or for humans:
   // up, right, down, left, a; seperated by spaces
-  $requiredHash = file_get_contents("../safe/pwd");
+  $requiredHash = $app->config("webInterface.authHash");
+
   if ($hash == $requiredHash) {
     return true;
   }
