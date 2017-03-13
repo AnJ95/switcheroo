@@ -9,9 +9,9 @@ function loadInfo() {
 
     $.each(result, function (name, info) {
         // Create new box for each info section
-        $el.append('<div class="half box info--' + name + '"></div>');
+        $el.append('<div class="half box widget--' + name + '"></div>');
         // Fill it with contents
-        widgets[name]($('.info--' + name), info);
+        widgets[name]($('.widget--' + name), info);
     });
   });
 

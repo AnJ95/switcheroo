@@ -63,23 +63,23 @@ widgets.weather = function($el, info) {
 
 
 
-  html += '<div class="info--weather__top">';
-    html += '<div class="info--weather__status">';
+  html += '<div class="widget--weather__top">';
+    html += '<div class="widget--weather__status">';
       html += '<img src="https://www.yahoo.com/sy/os/weather/1.0.1/shadow_icon/60x60/' + weatherIds[info.condition] +'@2x.png"/>';
       html += '<b>' + info.temperature + '</b>';
     html += '</div>';
-    html += '<table class="info--weather__top__right">';
+    html += '<table class="widget--weather__top__right">';
       html += '<tr><td><b>Humidity</b></td><td>' + info.humidity + '</td></tr>';
       html += '<tr><td><b>Pressure</b></td><td>' + info.pressure + '</td></tr>';
       html += '<tr><td><b>Wind</b></td><td>' + info.windSpeed + '</td></tr>';
     html += '</table>';
   html += '</div>';
 
-  html += '<div class="info--weather__bottom">';
+  html += '<div class="widget--weather__bottom">';
 
   for (var i = 0; i < 4; ++i) {
     var forecast = info["forecast"][i];
-    html += '<div class="info--weather__status">';
+    html += '<div class="widget--weather__status">';
       html += '<img src="https://www.yahoo.com/sy/os/weather/1.0.1/shadow_icon/60x60/' + weatherIds[forecast.condition] +'@2x.png"/>';
       html += '<b>' + forecast.temperature + '</b>';
     html += '</div>';

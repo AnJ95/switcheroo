@@ -1,8 +1,8 @@
-.info--weather {
+.widget--weather {
   position: relative;
 }
 
-.info--weather__top {
+.widget--weather__top {
   background-color: #ccc;
   color: #FFF;
   border-top-left-radius: 7px;
@@ -14,22 +14,22 @@
   height: 54px;
 }
 
-.info--weather__top__right {
+.widget--weather__top__right {
   float: left;
   width: 62%;
   padding-top: 4px;
   line-height: 12px;
   font-size: 0.51em;
 }
-.info--weather__top__right b {
+.widget--weather__top__right b {
   font-weight: 600;
 }
 
-.info--weather__status {
+.widget--weather__status {
   float: left;
   width: 38%;
 }
-.info--weather__status img {
+.widget--weather__status img {
   display: block;
   height: 33px;
   width: 33px;
@@ -37,7 +37,7 @@
   position: relative;
 }
 
-.info--weather__status b {
+.widget--weather__status b {
   display: block;
 
   font-size: 17px;
@@ -51,7 +51,7 @@
   top: -2px;
 }
 
-.info--weather__bottom {
+.widget--weather__bottom {
   position: absolute;
   bottom: 0;
   left: -1px;
@@ -59,15 +59,15 @@
   height: 46px;
 }
 
-.info--weather__bottom .info--weather__status {
+.widget--weather__bottom .widget--weather__status {
   width: 25%;
 }
-.info--weather__bottom .info--weather__status b {
+.widget--weather__bottom .widget--weather__status b {
   color: #ccc;
   font-size: 9px;
   top: 2px;
 }
-.info--weather__bottom .info--weather__status img {
+.widget--weather__bottom .widget--weather__status img {
   width: 24px;
   height: 24px;
   top: 6px;

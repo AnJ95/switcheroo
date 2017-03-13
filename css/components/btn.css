@@ -21,8 +21,6 @@
   cursor: pointer;
   box-shadow: 0 3px 0 0 #CCC;
   position: relative;
-
-  overflow: visible;
 }
 
 .btn__icon {

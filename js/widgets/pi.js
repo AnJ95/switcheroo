@@ -24,19 +24,19 @@ widgets.pi = function($el, info) {
   }
   var colorFormat = "rgb("+color[0]+","+color[1]+","+color[2]+")";
 
-  html += '<div class="info--pi__dateTime">';
-    html += '<span class="info--pi__dateTime__time">' + info.currentTime + '</span>';
-    html += '<span class="info--pi__dateTime__date">' + info.currentDate + '</span>';
+  html += '<div class="widget--pi__dateTime">';
+    html += '<span class="widget--pi__dateTime__time">' + info.currentTime + '</span>';
+    html += '<span class="widget--pi__dateTime__date">' + info.currentDate + '</span>';
   html += '</div>';
 
-  html += '<div class="info--pi__coreTemp">';
+  html += '<div class="widget--pi__coreTemp">';
     html += '<img src="img/icon/cpu.png" style="background-color: ' + colorFormat + '" />';
     html += '<span>' + info.coreTemp + '&#176;C</span>';
   html += '</div>';
 
   html += '<div class="clear"></div><div style="height: 10px;">';
 
-  html += '<div class="info--pi__upTime">';
+  html += '<div class="widget--pi__upTime">';
     html += '<span>' + info.upTime + '</span>';
   html += '</div>';
 
