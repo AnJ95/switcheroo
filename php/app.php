@@ -14,6 +14,10 @@ class App
       die('{"success":false, "error":"' . $errText . '"}');
     }
 
+    public static function warn($warnText) {
+      // Do nothing
+    }
+
 
     // Constructor, that loads config file
     function __construct() {
