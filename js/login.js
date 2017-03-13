@@ -1,11 +1,11 @@
 function initLogin() {
 
   // Preload sound
-  preloadSound("sound/sound--c.mp3");
-  preloadSound("sound/sound--d.mp3");
-  preloadSound("sound/sound--b.mp3");
-  preloadSound("sound/sound--a.mp3");
-  preloadSound("sound/sound--f.mp3");
+  var notes = new Array("c", "d", "b", "a", "f");
+  $.each(notes, function(i, note) {
+    preloadSound("sound/sound--" + note + ".mp3");
+    preloadSound("sound/sound--" + note + ".ogg");
+  });
 
   // Create local var loginAttempt to hold user input so far
   var loginAttempt = new Array();
