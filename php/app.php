@@ -10,8 +10,8 @@ class App
     private $authLevel = 0;
 
 
-    public static function err($text) {
-      die("CRITICAL ERROR: " . $text);
+    public static function err($errText) {
+      die('{"success":false, "error":"' . $errText . '"}');
     }
 
 
