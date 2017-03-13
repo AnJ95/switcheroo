@@ -3,6 +3,7 @@
 include("getPinActionsRequest.php");
 include("getPinsRequest.php");
 include("getWidgetsRequest.php");
+include("logoutRequest.php");
 include("sendPinActionRequest.php");
 
 abstract class Request {
@@ -13,6 +14,7 @@ abstract class Request {
         case "GetPinActions":
         case "GetPins":
         case "GetWidgets":
+        case "Logout":
         case "SendPinAction":
           $className = $requestName . "Request";
           return new $className;

@@ -4,19 +4,8 @@ function initHeader() {
   });
 
   $("#header__logout").click(function() {
-    $.ajax({
-      url: "php/auth.php",
-      method: "post",
-      data: {
-        logout : true
-      },
-      success: function (data) {
-        //window.location.reload();
-        $(".login-section").removeClass("active");
-      },
-      error: function () {
-        console.log("Could not logout");
-      },
+    request("Logout", [], function (result) {
+      $(".login-section").removeClass("active");
     });
   });
 
