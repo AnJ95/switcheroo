@@ -44,8 +44,11 @@ function initButtons() {
   	$(".btn-section .flow").html("");
   	$.each(buttonData, function(index, btn) {
   		var html = '';
-  		html += '<button class="half btn btn--' + index + ' btn--' + btn.action.type + ' ' + ((btn.action.default == true) ? 'btn--active'  : '') + '" style="background-color: ' + btn.color + '">';
-  			html += '<div class="btn__icon"><div style="background-image: url(' + btn.icon + ');"></div></div>';
+      var color = "rgb(" + btn.color[0] + "," + btn.color[1] + "," + btn.color[2] + ")";
+      var darkColor = "rgb(" + Math.round(btn.color[0]*0.8) + "," + Math.round(btn.color[1]*0.8) + "," + Math.round(btn.color[2]*0.8) + ")";
+
+  		html += '<button class="half btn btn--' + index + ' btn--' + btn.action.type + ' ' + ((btn.action.default == true) ? 'btn--active'  : '') + '" style="background-color: ' + color + '">';
+  			html += '<div class="btn__icon" style="box-shadow: 0 3px 0 0 ' + darkColor + ';"><div style="background-image: url(' + btn.icon + ');"></div></div>';
   			if (btn.action.type == "toggle") {
   				html += '<div class="btn__toggle"><span class="btn__toggle__icon"></span></div>';
           btn.action.value = btn.action.default;

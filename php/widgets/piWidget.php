@@ -14,7 +14,7 @@ class PiWidget extends Widget {
     }
 
     private function getCurrentDate() {
-      $date = trim(shell_exec('date +"%a %d.%m.%Y"'));
+      $date = trim(shell_exec('date +"%a %d.%m.%y"'));
 
       // error handling
       if ($date == "") {

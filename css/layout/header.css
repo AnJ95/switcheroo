@@ -7,8 +7,8 @@ header {
   left: 0;
   padding: 0 4%;
   background-color: #e58c32;
-  border-bottom: 1px solid #CCC;
-  box-shadow: 0 3px 0 0 #CCC;
+  border-bottom: 1px solid #b87028;
+  box-shadow: 0 3px 0 0 #b87028;
 }
 
 header img {
@@ -35,8 +35,8 @@ header img {
   margin-left: 15px;
   background-color: #FFF;
   border-radius: 7px;
-  border: 1px solid #CCC;
-  box-shadow: 0 -1px 0 0 #CCC;
+  border: 1px solid #b87028;
+  box-shadow: 0 -3px 0 0 #b87028;
   width: 10vh;
 }
 
