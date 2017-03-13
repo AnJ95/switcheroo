@@ -2,24 +2,41 @@ function initButtons() {
 
   var buttonData;
 
-  $.ajax({
-    url: "php/buttons.php",
-    data: {},
-    success: function (data) {
-      buttonData = data;
-      refresh(data)
-    },
-    error: function () {
-      console.log("Could not load buttons.json");
-    },
-    dataType: "json"
+  request("GetPinActions", [], function (result) {
+    buttonData = result;
+    refresh(result);
   });
 
   function buttonHandler(index) {
     var btn = buttonData[index];
     btn.$el.addClass("btn--loading");
-    sendCommand(btn);
-    //buttonData[index].$el.addClass("btn--complete");
+
+    request("SendPinAction", btn.action,
+    // SUCCESS HANDLER
+    function (result) {
+      btn.$el.addClass("btn--complete");
+      window.setTimeout(function(){btn.$el.removeClass("btn--complete");}, 500);
+
+      if (btn.action.type == "toggle") {
+        if (btn.action.value == true) {
+          btn.action.value = false;
+          btn.$el.removeClass("btn--active");
+        } else {
+          btn.action.value = true;
+          btn.$el.addClass("btn--active");
+        }
+      }
+    },
+    // ERROR HANDLER
+    function () {
+      btn.$el.addClass("btn--error");
+      window.setTimeout(function(){btn.$el.removeClass("btn--error");}, 500);
+      return;
+    },
+    // GENERAL HANDLER
+    function () {
+      btn.$el.removeClass("btn--loading");
+    });
   }
 
   function refresh(buttonData) {

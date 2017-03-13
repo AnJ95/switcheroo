@@ -1,6 +1,6 @@
 
 
-function request(requestName, requestData, successHandler) {
+function request(requestName, requestData, successHandler, errorHandler = function() {}, generalHandler = function () {}) {
   $.ajax({
     url: "request/",
     method: "post",
@@ -9,14 +9,18 @@ function request(requestName, requestData, successHandler) {
       "requestData" : requestData
     },
     success: function (data) {
+      generalHandler();
       if (data.success) {
-        successHandler();
+        successHandler(data.result);
       } else {
-        console.log("Could not perform request \"" . requestName . "\". Error: " + data.error);
+        errorHandler();
+        console.log("Request \"" + requestName + "\" returned with an error: " + data.error);
       }
     },
     error: function () {
-      console.log("Could not perform request \"" . requestName . "\" due to network error");
+      generalHandler();
+      errorHandler();
+      console.log("Could not perform request \"" + requestName + "\"");
     },
     dataType: "json"
   });
