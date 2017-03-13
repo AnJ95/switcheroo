@@ -22,6 +22,9 @@ class App
       } catch (Exception $e) {
         App::err("Could not load config file: " . $e->getMessage());
       }
+
+      // Try login in with cookie data
+      $this->tryLogin("");
     }
 
 
