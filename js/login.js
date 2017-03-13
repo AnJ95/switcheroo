@@ -27,8 +27,7 @@ function initLogin() {
     // keep track of entered login phrase
     loginAttempt[loginAttempt.length] = $el.data("code");
     if (loginAttempt.length >= 8) {
-      login(loginAttempt.join(" "));
-      loginAttempt = new Array();
+      login(loginAttempt.slice(-8).join(" "));
     }
   }
 
@@ -45,7 +44,7 @@ function initLogin() {
             initAfterLogin();
             $(".login-section").addClass("active");
         } else {
-          console.log("Could not login: " + data.error);
+          console.log("Could not login: " + data.text);
         }
       },
   		error: function () {
