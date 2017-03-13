@@ -1,7 +1,7 @@
 <?php
 
 // Load app
-require_once("../php/app.php");
+include_once("../php/app.php");
 $app = new App();
 
 // Check authentification
