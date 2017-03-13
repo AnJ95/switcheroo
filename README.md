@@ -15,7 +15,7 @@ The interface is a plain HTML/CSS/JavaScript web app using only [jQuery](https:/
 * Install [Apache and PHP](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md)
 * Install [WiringPi](http://wiringpi.com/download-and-install/)
 * Clone this repository to */var/www/Switcheroo* or similar
-* Set credentials in php config
+* Modifiy php/config.json
 * In your local network, go to the website *[Your PI's IP]*/Switcheroo
 * Enter the password *down, a, down, a, right, down, right, down* to get access
 
