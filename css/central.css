@@ -27,8 +27,8 @@ Grey
 @import url("components/pin-lines.css");
 @import url("components/shell.css");
 
-@import url("info/pi.css");
-@import url("info/weather.css");
+@import url("widgets/pi.css");
+@import url("widgets/weather.css");
 
 @import url("abstracts/flow.css");
 

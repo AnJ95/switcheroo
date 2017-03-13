@@ -10,8 +10,6 @@
   transition: top 0.2s ease-in-out;
 }
 
-
-
 .login-section .btn > div {
   height: 50%;
   width: 50%;
@@ -25,4 +23,13 @@
 
 .login-section.active {
   top: -115%;
+}
+
+.btn.btn--yellow {
+  background-color: #ffff6b;
+  box-shadow: 0 3px 0 0 #cccc56;
+}
+.btn.btn--blue {
+  background-color: #4b5fda;
+  box-shadow: 0 3px 0 0 #3b4aad;
 }

@@ -17,7 +17,7 @@
 
     <script type="text/javascript" src="js/init.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/central.css">
     <title>Switcheroo</title>
     <link rel="icon" type="image/png" href="img/favicon.png" sizes="128x128">
   </head>
@@ -48,19 +48,19 @@
       <section>
         <div class="flow">
           <div class="half btn" style="visibility: hidden"></div>
-          <div class="half btn btn--sound--1" data-code="up" data-sound="sound--up" style="background-color: #ffff6b;">
+          <div class="half btn btn--sound--1 btn--yellow" data-code="up" data-sound="sound--up">
             <div style="background-image: url(img/key/up.png);"></div>
           </div>
-          <div class="half btn btn--sound--2" data-code="left" data-sound="sound--left" style="background-color: #ffff6b;">
+          <div class="half btn btn--sound--2 btn--yellow" data-code="left" data-sound="sound--left">
             <div style="background-image: url(img/key/left.png);"></div>
           </div>
-          <div class="half btn btn--sound--3" data-code="right" data-sound="sound--right" style="background-color: #ffff6b;">
+          <div class="half btn btn--sound--3 btn--yellow" data-code="right" data-sound="sound--right">
             <div style="background-image: url(img/key/right.png);"></div>
           </div>
-          <div class="half btn btn--sound--2" data-code="a" data-sound="sound--a" style="background-color: #4b5fda;">
+          <div class="half btn btn--sound--2 btn--blue" data-code="a" data-sound="sound--a">
             <div style="background-image: url(img/key/a.png);"></div>
           </div>
-          <div class="half btn btn--sound--4" data-code="down" data-sound="sound--down" style="background-color: #ffff6b;">
+          <div class="half btn btn--sound--4 btn--yellow" data-code="down" data-sound="sound--down">
             <div style="background-image: url(img/key/down.png);"></div>
           </div>
 
