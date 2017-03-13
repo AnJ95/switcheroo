@@ -54,7 +54,6 @@ var weatherIds = {
 };
 
 widgets.weather = function($el, info) {
-  console.log(info);
   var html = '';
   /*
   for (var i = 0; i <= 47; i++) {

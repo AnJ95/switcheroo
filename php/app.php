@@ -21,10 +21,17 @@ class App
 
     // Constructor, that loads config file
     function __construct() {
-      try {
-        $this->config = json_decode(file_get_contents("../safe/config.json"));
-      } catch (Exception $e) {
-        App::err("Could not load config file: " . $e->getMessage());
+
+      // Load config file
+      $configFileContents = @file_get_contents("../php/config.json");
+      if ($configFileContents == NULL) {
+        App::err("Could not open config file");
+      }
+
+      // Parse config file to json
+      $this->config = @json_decode($configFileContents);
+      if ($this->config == NULL) {
+        App::err("Could not parse config file");
       }
 
       // Try login in with cookie data
