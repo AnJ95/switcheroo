@@ -35,7 +35,7 @@ function initLogin() {
   // attempt to login with given pwd, may login even with wrong password if already logged in
   function login(pwd) {
     $.ajax({
-  		url: "php/auth.php",
+  		url: "request/auth.php",
       method: "post",
   		data: {
         pwd: pwd
