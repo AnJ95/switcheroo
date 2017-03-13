@@ -50,11 +50,9 @@ class App
       $this->authLevel = 1;
     }
 
-
     public function auth() {
       return $this->authLevel;
     }
-
 
 
     // Get config value by key or concatenation of keys, connected by "."

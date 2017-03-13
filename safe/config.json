@@ -6,5 +6,23 @@
   },
   "webInterface" : {
     "authHash" : "9e676808fe39477469216a1e5e33c9f76f2ae465"
-  }
+  },
+  "widgets" : {
+    "pi" : {},
+    "weather" : {
+      "geoLocation" : "karlsruhe"
+    }
+  },
+  "pinActions" : [
+    {
+      "name" : "toggleLed",
+      "niceName" : "LED",
+      "color" : "#e58c32",
+      "icon" : "img/icon/toggleLed.png",
+      "action" : {
+        "type" : "toggle",
+        "pin" : "29"
+      }
+    }
+  ]
 }

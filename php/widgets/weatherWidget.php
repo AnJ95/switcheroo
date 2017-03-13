@@ -5,7 +5,15 @@ class WeatherWidget extends Widget {
     public function getWidgetData($app) {
       $this->app = $app;
 
-      $channel = $this->requestToAPI()->query->results->channel;
+      // Retrieve API weather data and do some error handling
+      $apiResult = $this->requestToAPI();
+      if ($apiResult == NULL) {
+        $app->err("Could not retrieve weather data from API");
+      }
+      if ($apiResult->query->results == NULL) {
+        $app->err("Could not extract weater data from API result");
+      }
+      $channel = $apiResult->query->results->channel;
 
       $result = [
         "temperature" => $this->f2c($channel->item->condition->temp),
@@ -26,7 +34,7 @@ class WeatherWidget extends Widget {
     }
 
     private function requestToAPI() {
-      return json_decode(file_get_contents("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22karlsruhe%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"));
+      return json_decode(file_get_contents("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" . str_replace(" ", "%20", $this->app->config("widgets.weather.geoLocation")) . "%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"));
     }
 
     private function f2c($fahrenheit, $r = 1) {
