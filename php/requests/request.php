@@ -15,13 +15,15 @@ abstract class Request {
         case "GetWidgets":
         case "SendPinAction":
           $className = $requestName . "Request";
-          return new $className();
+          return new $className;
         break;
 
         default:
           return NULL;
           break;
       }
+
+      return NULL;
     }
 }
 

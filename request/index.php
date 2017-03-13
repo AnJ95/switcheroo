@@ -20,13 +20,19 @@ $requestName = $_POST['requestName'];
 
 // Get corresponding Request
 $requestHandler = Request::getRequestByName($requestName);
-if ($requestHandler == NULL) {
+if ($requestHandler === NULL) {
   $app->err("Could not find request with name \"" . $requestName . "\"");
 }
 
+// Get requestData / default
+$requestData = array();
+if (isset($_POST['requestData'])) {
+  $requestData = $_POST['requestData'];
+}
+
 // Call getResult with optional RequestData
-$jsonResult = $action->getResult($app, $_POST['requestData'] || NULL);
-if ($jsonResult == NULL) {
+$jsonResult = $requestHandler->getResult($app, $requestData);
+if ($jsonResult === NULL) {
   $app->err("Could not execute \"" . $requestName . "\"; result was NULL");
 }
 

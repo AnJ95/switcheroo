@@ -7,6 +7,7 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/header.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/request.js"></script>
     <script type="text/javascript" src="js/buttons.js"></script>
     <script type="text/javascript" src="js/window.js"></script>
 
