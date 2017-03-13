@@ -1,6 +1,10 @@
 
 
-function request(requestName, requestData, successHandler, errorHandler = function() {}, generalHandler = function () {}) {
+function request(requestName, requestData, successHandler, errorHandler, generalHandler) {
+  successHandler = successHandler || function() {};
+  errorHandler = successHandler || function() {};
+  generalHandler = successHandler || function() {};
+
   $.ajax({
     url: "request/",
     method: "post",
