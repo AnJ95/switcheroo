@@ -2,8 +2,8 @@
 
 function request(requestName, requestData, successHandler, errorHandler, generalHandler) {
   successHandler = successHandler || function() {};
-  errorHandler = successHandler || function() {};
-  generalHandler = successHandler || function() {};
+  errorHandler = errorHandler || function() {};
+  generalHandler = generalHandler || function() {};
 
   $.ajax({
     url: "request/",
