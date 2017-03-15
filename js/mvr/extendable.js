@@ -3,7 +3,7 @@ window.app.mvr = window.app.mvr || {};
 
 window.app.mvr.Extendable = {
 
-  superClass : undefined,
+  super : undefined,
 
   extend : function (extension) {
     // copy this first

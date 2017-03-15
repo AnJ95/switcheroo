@@ -4,5 +4,5 @@ window.app.templates.widgets = window.app.templates.widgets || {};
 
 
 window.app.templates.widgets.widget = function (model) {
-  return `<div class="half box widget--${model.json.type}">${model.json.type}</div>`;
+  return `<div class="half box widget--${model.json.type}"><div class="box__inner">${model.json.type}</div></div>`;
 }

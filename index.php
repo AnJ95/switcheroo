@@ -32,6 +32,8 @@
     <script type="text/javascript" src="js/templates/header/header.js"></script>
     <script type="text/javascript" src="js/templates/widgets/widgets.js"></script>
     <script type="text/javascript" src="js/templates/widgets/widget.js"></script>
+    <script type="text/javascript" src="js/templates/widgets/widgetInnerPi.js"></script>
+    <script type="text/javascript" src="js/templates/widgets/widgetInnerWeather.js"></script>
     <script type="text/javascript" src="js/templates/wrapper.js"></script>
 
 
@@ -43,10 +45,14 @@
     <script type="text/javascript" src="js/views/header/header.js"></script>
     <script type="text/javascript" src="js/views/widgets/widgets.js"></script>
     <script type="text/javascript" src="js/views/widgets/widget.js"></script>
+    <script type="text/javascript" src="js/views/widgets/widgetInnerPi.js"></script>
+    <script type="text/javascript" src="js/views/widgets/widgetInnerWeather.js"></script>
     <script type="text/javascript" src="js/views/wrapper.js"></script>
 
     <!-- Models -->
     <script type="text/javascript" src="js/models/widgets/widget.js"></script>
+    <script type="text/javascript" src="js/models/widgets/widgetInnerPi.js"></script>
+    <script type="text/javascript" src="js/models/widgets/widgetInnerWeather.js"></script>
 
     <!-- Collections -->
     <script type="text/javascript" src="js/collections/widgets.js"></script>

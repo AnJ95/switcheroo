@@ -10,7 +10,7 @@ window.app.mvr.Collection = window.app.mvr.Model.extend({
     var that = this;
     $.each(json, function (modelName, modelJson) {
       if (that.models[modelName] == undefined) {
-        that.models[modelName] = that.getModelClassByKey()
+        that.models[modelName] = that.getModelClassByKey(modelName)
           .new()
           .update(modelJson);
       } else {

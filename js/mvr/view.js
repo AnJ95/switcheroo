@@ -75,6 +75,7 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
   renderInitialChildren : function () {
     var that = this;
     $.each(this.childViewDefinitions, function(i, def) {
+
       var view = def.viewClass
         .new(that.$el.find(def.selector))
         .setRenderStyle(def.renderStyle || "insert");
@@ -84,7 +85,7 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
       }
 
       that.children[i] = view;
-      
+
       view.renderInitial();
     });
   },
