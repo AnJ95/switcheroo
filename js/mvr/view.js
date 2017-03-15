@@ -8,6 +8,7 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
   },
   $el : undefined,
   model : undefined,
+  childViewDefinitions : [],
 
   new : function ($el) {
     // Use default new-method
@@ -26,6 +27,15 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
 
   renderInitial : function () {
     this.$el.html(this.template(this.model));
+
+    var that = this;
+
+    $.each(this.childViewDefinitions, function(i, def) {
+      def.viewClass
+        .new(that.$el.find(def.selector))
+        .renderInitial();
+    })
+
     return this;
   },
 

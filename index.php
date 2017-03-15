@@ -25,10 +25,13 @@
 
     <!-- Templates -->
     <script type="text/javascript" src="js/templates/page.js"></script>
+    <script type="text/javascript" src="js/templates/header.js"></script>
     <script type="text/javascript" src="js/templates/wrapper.js"></script>
+
 
     <!-- Views -->
     <script type="text/javascript" src="js/views/page.js"></script>
+    <script type="text/javascript" src="js/views/header.js"></script>
     <script type="text/javascript" src="js/views/wrapper.js"></script>
 
     <!-- Models -->

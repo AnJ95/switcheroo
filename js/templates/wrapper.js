@@ -5,11 +5,7 @@ window.app.templates = window.app.templates || {};
 window.app.templates.wrapper = function (model) {
   return `
     <!-- Header -->
-    <header>
-      <div class="header__logo"><img src="img/logo.png" /></div>
-      <div class="header__btn" id="header__logout"><img src="img/icon/logout.png" /></div>
-      <div class="header__btn" id="header__pins"><img src="img/icon/pins.png" /></div>
-    </header>
+    <header></header>
 
     <!-- Window -->
     <div class="window"><div class="window__inner"></div></div>
