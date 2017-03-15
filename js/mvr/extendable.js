@@ -3,6 +3,8 @@ window.app.mvr = window.app.mvr || {};
 
 window.app.mvr.Extendable = {
 
+  superClass : undefined,
+
   extend : function (extension) {
     // copy this first
     var deepCopy = jQuery.extend(true, {}, this);
@@ -16,15 +18,15 @@ window.app.mvr.Extendable = {
       }
     });
 
+    // Add reference to super class
+    deepCopy.super = this;
     return deepCopy;
   },
 
 
-  new : function ($el) {
-    // copy this first
+  new : function () {
+    // copy this
     var deepCopy = jQuery.extend(true, {}, this);
-
-    deepCopy.$el = $el;
 
     return deepCopy;
   },

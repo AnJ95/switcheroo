@@ -1,15 +1,26 @@
 window.app = window.app || {};
 window.app.view = window.app.view || {};
 
-window.app.view.View = window.app.mvr.Extendable.extend({
+window.app.mvr.View = window.app.mvr.Extendable.extend({
 
   template : function (model) {
-    return "If you see this, then a view did not overwrite the template function";
+    return "If you see this, a view did not overwrite the template function";
   },
   $el : undefined,
   model : undefined,
 
-  notify : function() {
+  new : function ($el) {
+    // Use default new-method
+    // Not the nicest practice, but
+    // this.super.new... produces endless recursion
+    var instance = window.app.mvr.Extendable.new.call(this);
+
+    // Attach $el & return
+    instance.$el = $el;
+    return instance;
+  },
+
+  notify : function () {
     this.renderUpdate();
   },
 
