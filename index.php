@@ -17,8 +17,13 @@
 
     <script type="text/javascript" src="js/init.js"></script>
 
-    <script type="text/javascript" src="js/view/view.js"></script>
-    <script type="text/javascript" src="js/view/exampleView.js"></script>
+    <!-- MVR Framework -->
+    <script type="text/javascript" src="js/mvr/extendable.js"></script>
+    <script type="text/javascript" src="js/mvr/view.js"></script>
+    <script type="text/javascript" src="js/mvr/model.js"></script>
+
+    <!-- Views -->
+    <script type="text/javascript" src="js/views/exampleView.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/central.css">
     <title>Switcheroo</title>

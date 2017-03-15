@@ -1,24 +1,7 @@
 window.app = window.app || {};
-window.app.view = window.app.view || {};
+window.app.mvr = window.app.mvr || {};
 
-window.app.view.View = {
-
-  template : function (model) {
-    return "If you see this, then a view did not overwrite the template function";
-  },
-  $el : undefined,
-  model : undefined,
-
-  renderInitial : function () {
-    this.$el.html(this.template(this.model));
-
-    return this;
-  },
-  renderUpdate : function () {
-    this.renderInitial(this.model);
-
-    return this;
-  },
+window.app.mvr.Extendable = {
 
   extend : function (extension) {
     // copy this first
@@ -35,6 +18,7 @@ window.app.view.View = {
 
     return deepCopy;
   },
+
 
   new : function ($el) {
     // copy this first
