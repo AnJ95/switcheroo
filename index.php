@@ -17,6 +17,9 @@
 
     <script type="text/javascript" src="js/init.js"></script>
 
+    <script type="text/javascript" src="js/view/view.js"></script>
+    <script type="text/javascript" src="js/view/exampleView.js"></script>
+
     <link rel="stylesheet" type="text/css" href="css/central.css">
     <title>Switcheroo</title>
     <link rel="icon" type="image/png" href="img/favicon.png" sizes="128x128">
@@ -88,6 +91,8 @@
       </section>
 
       <div class="clear"></div>
+
+      <div class="playground"></div>
 
       <!-- Btn Section -->
 		  <section class="btn-section">

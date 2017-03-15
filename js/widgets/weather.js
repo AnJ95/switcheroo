@@ -13,7 +13,7 @@ var weatherIds = {
   8:    "",//"freezing drizzle",
   9:    "",//"drizzle",
   10:   "",//"freezing rain",
-  11:   "",//"shower",
+  11:   "rain_day_night",//"shower",
   12:   "",//"showers",
   13:   "flurries_day_night",//"snow flurries",
   14:   "",//"light snow showers",
