@@ -25,8 +25,6 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
 
   new : function ($el) {
     // Use default new-method
-    // Not the nicest practice, but
-    // this.super.new... produces endless recursion
     var instance = window.app.mvr.Extendable.new.call(this);
 
     // Attach $el & return

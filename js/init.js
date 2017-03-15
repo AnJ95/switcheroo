@@ -13,8 +13,14 @@ function initAfterLogin () {
     .renderInitial();
 
 
+  var col = window.app.collections.widgets
+    .new()
+    .fetch();
+
+  console.log("col:", col);
+
   loadInfo();
   initButtons();
-  initHeader();
+  //initHeader();
   window.setInterval(loadInfo, 3000);
 }

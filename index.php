@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/header.js"></script>
+    <!-- <script type="text/javascript" src="js/header.js"></script> -->
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/request.js"></script>
     <script type="text/javascript" src="js/buttons.js"></script>
@@ -22,6 +22,7 @@
     <script type="text/javascript" src="js/mvr/observable.js"></script>
     <script type="text/javascript" src="js/mvr/view.js"></script>
     <script type="text/javascript" src="js/mvr/model.js"></script>
+    <script type="text/javascript" src="js/mvr/collection.js"></script>
 
     <!-- Templates -->
     <script type="text/javascript" src="js/templates/page.js"></script>
@@ -39,7 +40,10 @@
     <script type="text/javascript" src="js/views/wrapper.js"></script>
 
     <!-- Models -->
+    <script type="text/javascript" src="js/models/widgets/widget.js"></script>
 
+    <!-- Collections -->
+    <script type="text/javascript" src="js/collections/widgets.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/central.css">
     <title>Switcheroo</title>
