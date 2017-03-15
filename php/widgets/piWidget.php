@@ -6,6 +6,7 @@ class PiWidget extends Widget {
       $this->app = $app;
 
       return [
+        "type" => "pi",
         "currentTime" => $this->getCurrentTime(),
         "currentDate" => $this->getCurrentDate(),
         "upTime" => $this->getUpTime(),

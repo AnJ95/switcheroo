@@ -16,6 +16,7 @@ class WeatherWidget extends Widget {
       $channel = $apiResult->query->results->channel;
 
       $result = [
+        "type" => "weather",
         "temperature" => $this->f2c($channel->item->condition->temp),
         "condition" => $channel->item->condition->code,
         "humidity" => $channel->atmosphere->humidity,

@@ -7,6 +7,8 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
     return "If you see this, a view did not overwrite the template function";
   },
 
+  children : {},
+
   $el : undefined,
 
   isRendered : false,
@@ -81,6 +83,8 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
         view.setModel(def.model)
       }
 
+      that.children[i] = view;
+      
       view.renderInitial();
     });
   },
