@@ -1,7 +1,7 @@
 window.app = window.app || {};
 window.app.mvr = window.app.mvr || {};
 
-window.app.model.Observable = window.app.mvr.Extendable.extend({
+window.app.mvr.Observable = window.app.mvr.Extendable.extend({
 
   // assert: observers have notify() method.
   observers : [],

@@ -27,5 +27,15 @@ window.app.mvr.Extendable = {
     deepCopy.$el = $el;
 
     return deepCopy;
+  },
+
+  info : function(text) {
+    console.log("Info: " + text, this);
+  },
+  warn : function(text) {
+    console.warn("Warning: " + text, this);
+  },
+  error : function(text) {
+    console.error("Error: " + text, this);
   }
 }

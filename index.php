@@ -19,6 +19,7 @@
 
     <!-- MVR Framework -->
     <script type="text/javascript" src="js/mvr/extendable.js"></script>
+    <script type="text/javascript" src="js/mvr/observable.js"></script>
     <script type="text/javascript" src="js/mvr/view.js"></script>
     <script type="text/javascript" src="js/mvr/model.js"></script>
 

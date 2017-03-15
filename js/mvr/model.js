@@ -1,10 +1,31 @@
 window.app = window.app || {};
-window.app.model = window.app.model || {};
+window.app.mvr = window.app.mvr || {};
 
-window.app.model.Model = window.app.mvr.Obervable.extend({
+window.app.mvr.Model = window.app.mvr.Observable.extend({
   json : {},
   update : function (json) {
     this.json = json;
-    //console.warn("Tried to update a model, but did not specify the concrete update() method. json was: ", json);
+    this.notifyObservers();
+  },
+
+  fetch : function () {
+    var that = this;
+    request(
+      this.fetchRequestName(),
+      this.fetchRequestData(),
+      this.update,
+      function () {
+        that.error("Could not fetch data for model");
+      }
+    );
+  },
+  fetchRequestName : function () {
+    this.warn("Did not specify fetchRequestName in concrete Model");
+    return "";
+  },
+  fetchRequestData : function () {
+    this.warn("Did not specify fetchRequestData in concrete Model");
+    return [];
   }
+
 });
