@@ -9,6 +9,10 @@ window.app.view.View = window.app.mvr.Extendable.extend({
   $el : undefined,
   model : undefined,
 
+  notify : function() {
+    this.renderUpdate();
+  },
+
   renderInitial : function () {
     this.$el.html(this.template(this.model));
 
@@ -16,7 +20,7 @@ window.app.view.View = window.app.mvr.Extendable.extend({
   },
 
   renderUpdate : function () {
-    this.renderInitial(this.model);
+    this.renderInitial();
 
     return this;
   }
