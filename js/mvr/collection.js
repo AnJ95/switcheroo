@@ -24,13 +24,13 @@ window.app.mvr.Collection = window.app.mvr.Model.extend({
     return this;
   },
 
-  notifiyObservers : function () {
+  notifyObservers : function () {
     // Do standard Model-notifyObservers
-    window.app.mvr.Model.update.call(this);
+    window.app.mvr.Model.notifyObservers.call(this);
 
-    // call each models notifiyObservers
+    // call each models notifyObservers
     $.each(this.models, function (modelName, model) {
-      model.notifiyObservers();
+      model.notifyObservers();
     });
 
     return this;
