@@ -4,13 +4,15 @@ window.app.model = window.app.model || {};
 
 window.app.view.ExampleView = window.app.mvr.View.extend({
   template : function (model) {
-    return "This is the templates content.";
+    return "<div class='changeMe'>This is the templates content.</div>";
+  },
+  renderUpdate : function () {
+    this.$el.find(".changeMe").html(this.model.toString());
   }
 });
 window.app.model.ExampleModel = window.app.mvr.Model.extend({
-  template : function (model) {
-    return "This is the templates content.";
-  }
+  fetchRequestName : function() {return "GetWidgets";},
+  fetchRequestData : function() {return [];}
 });
 
 $(document).ready(function() {
@@ -19,7 +21,9 @@ $(document).ready(function() {
     .renderInitial();
 
   var exampleModel = window.app.model.ExampleModel
-    .new();
+    .new()
+    .attachObserver(exampleView)
+    .fetch();
 
   //exampleView.renderInitial({});
 });

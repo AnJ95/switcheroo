@@ -13,9 +13,11 @@ window.app.mvr.Model = window.app.mvr.Observable.extend({
     request(
       this.fetchRequestName(),
       this.fetchRequestData(),
-      this.update,
       function () {
-        that.error("Could not fetch data for model");
+        that.update.call(that);
+      },
+      function () {
+        that.error.call(that, "Could not fetch data for model");
       }
     );
   },
