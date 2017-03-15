@@ -21,6 +21,7 @@
     <script type="text/javascript" src="js/mvr/extendable.js"></script>
     <script type="text/javascript" src="js/mvr/observable.js"></script>
     <script type="text/javascript" src="js/mvr/view.js"></script>
+    <script type="text/javascript" src="js/mvr/compositeView.js"></script>
     <script type="text/javascript" src="js/mvr/model.js"></script>
     <script type="text/javascript" src="js/mvr/collection.js"></script>
     <script type="text/javascript" src="js/mvr/modelManager.js"></script>
