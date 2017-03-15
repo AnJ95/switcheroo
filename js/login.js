@@ -1,5 +1,9 @@
 function initLogin() {
 
+  window.app.view.Page
+    .new($("body"))
+    .renderInitial();
+    
   // Preload sound
   var notes = new Array("c", "d", "b", "a", "f");
   $.each(notes, function(i, note) {

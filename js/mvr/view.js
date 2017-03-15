@@ -26,13 +26,12 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
 
   renderInitial : function () {
     this.$el.html(this.template(this.model));
-
     return this;
   },
 
   renderUpdate : function () {
     this.renderInitial();
-
     return this;
   }
+
 });

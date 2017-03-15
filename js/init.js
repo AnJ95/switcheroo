@@ -7,6 +7,12 @@ $(document).ready(function() {
 
 // Actual app init
 function initAfterLogin () {
+
+  window.app.view.Wrapper
+    .new($(".wrapper"))
+    .renderInitial();
+
+
   loadInfo();
   initButtons();
   initHeader();

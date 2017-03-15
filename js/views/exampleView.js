@@ -16,6 +16,7 @@ window.app.model.ExampleModel = window.app.mvr.Model.extend({
 });
 
 $(document).ready(function() {
+  /*
   var exampleView = window.app.view.ExampleView
     .new($(".playground"))
     .renderInitial();
@@ -25,5 +26,8 @@ $(document).ready(function() {
     .attachObserver(exampleView)
     .fetch();
 
+  $("body").html(html);
+
   //exampleView.renderInitial({});
+  */
 });
