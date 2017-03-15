@@ -7,7 +7,7 @@ window.app.view.Wrapper = window.app.mvr.View.extend({
   childViewDefinitions : [
       {
         selector : "header",
-        viewClass : window.app.view.Header
+        viewClass : window.app.view.header.Header
       }
   ]
 });
