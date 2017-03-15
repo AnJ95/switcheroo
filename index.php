@@ -23,11 +23,14 @@
     <script type="text/javascript" src="js/mvr/view.js"></script>
     <script type="text/javascript" src="js/mvr/model.js"></script>
     <script type="text/javascript" src="js/mvr/collection.js"></script>
+    <script type="text/javascript" src="js/mvr/modelManager.js"></script>
 
     <!-- Templates -->
     <script type="text/javascript" src="js/templates/page.js"></script>
     <script type="text/javascript" src="js/templates/header/headerBtns/headerBtn.js"></script>
     <script type="text/javascript" src="js/templates/header/header.js"></script>
+    <script type="text/javascript" src="js/templates/widgets/widgets.js"></script>
+    <script type="text/javascript" src="js/templates/widgets/widget.js"></script>
     <script type="text/javascript" src="js/templates/wrapper.js"></script>
 
 
@@ -37,6 +40,8 @@
     <script type="text/javascript" src="js/views/header/headerBtns/headerBtnLogout.js"></script>
     <script type="text/javascript" src="js/views/header/headerBtns/headerBtnPins.js"></script>
     <script type="text/javascript" src="js/views/header/header.js"></script>
+    <script type="text/javascript" src="js/views/widgets/widgets.js"></script>
+    <script type="text/javascript" src="js/views/widgets/widget.js"></script>
     <script type="text/javascript" src="js/views/wrapper.js"></script>
 
     <!-- Models -->

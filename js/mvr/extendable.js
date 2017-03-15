@@ -20,7 +20,7 @@ window.app.mvr.Extendable = {
 
     // Add reference to super class
     deepCopy.super = this;
-    
+
     return deepCopy;
   },
 

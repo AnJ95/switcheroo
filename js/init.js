@@ -8,19 +8,17 @@ $(document).ready(function() {
 // Actual app init
 function initAfterLogin () {
 
+  // Instantiate ModelManager
+  window.app.ModelManager = window.app.mvr.ModelManager.new();
+
+  // Instantiate Wrapper
   window.app.view.Wrapper
     .new($(".wrapper"))
     .renderInitial();
 
 
-  var col = window.app.collections.widgets
-    .new()
-    .fetch();
-
-  console.log("col:", col);
-
-  loadInfo();
+  //loadInfo();
   initButtons();
   //initHeader();
-  window.setInterval(loadInfo, 3000);
+  //window.setInterval(loadInfo, 3000);
 }

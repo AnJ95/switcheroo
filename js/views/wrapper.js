@@ -8,6 +8,11 @@ window.app.view.Wrapper = window.app.mvr.View.extend({
       {
         selector : "header",
         viewClass : window.app.view.header.Header
+      },
+      {
+        selector : ".hook--widgets",
+        viewClass : window.app.view.widgets.Widgets,
+        renderStyle : "replace"
       }
   ]
 });

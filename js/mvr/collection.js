@@ -6,9 +6,6 @@ window.app.mvr.Collection = window.app.mvr.Model.extend({
   models : {},
 
   update : function (json) {
-    // Do standard Model-update
-    window.app.mvr.Model.update.call(this, json);
-
     // iterate over all jsonElements to call corresponding models update /
     var that = this;
     $.each(json, function (modelName, modelJson) {
@@ -20,6 +17,9 @@ window.app.mvr.Collection = window.app.mvr.Model.extend({
         that.models[modelName].update(modelJson);
       }
     });
+
+    // Do standard Model-update
+    window.app.mvr.Model.update.call(this, json);
 
     return this;
   },
@@ -36,6 +36,9 @@ window.app.mvr.Collection = window.app.mvr.Model.extend({
     return this;
   },
 
+  getModel : function(modelName) {
+    return this.models[modelName];
+  },
 
   getModelClassByKey : function(name) {
     return window.app.mvr.Model;

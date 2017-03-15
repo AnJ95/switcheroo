@@ -8,14 +8,14 @@ window.app.mvr.Observable = window.app.mvr.Extendable.extend({
 
   notifyObservers : function () {
     $.each(this.observers, function(i, observer) {
-      observer.notify();
+      observer.notify.call(observer);
     });
   },
 
   attachObserver : function (observer) {
     // Add reference this.observers->observer
     this.observers[this.observers.length] = observer;
-
+    
     // Add reference observer.model->this
     observer.model = this;
 

@@ -10,12 +10,8 @@ window.app.templates.wrapper = function (model) {
     <!-- Window -->
     <div class="window"><div class="window__inner"></div></div>
 
-    <!-- Info Section -->
-    <section class="info-section">
-      <div class="flow">
-        <div class="box">Lade Widgets...  </div>
-      </div>
-    </section>
+    <!-- Widgets Section -->
+    <div class="hook--widgets"></div>
 
     <div class="clear"></div>
 

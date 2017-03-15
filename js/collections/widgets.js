@@ -2,7 +2,7 @@ window.app = window.app || {};
 window.app.collections = window.app.collections || {};
 window.app.collections.widgets = window.app.collections.widgets || {};
 
-window.app.collections.widgets = window.app.mvr.Collection.extend({
+window.app.collections.Widgets = window.app.mvr.Collection.extend({
   fetchRequestName : function() {return "GetWidgets";},
   fetchRequestData : function() {return [];},
 
