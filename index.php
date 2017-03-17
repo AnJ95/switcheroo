@@ -55,12 +55,14 @@
 
     <!-- Models -->
     <script type="text/javascript" src="js/models/pinAction.js"></script>
+    <script type="text/javascript" src="js/models/pin.js"></script>
     <script type="text/javascript" src="js/models/widgets/widget.js"></script>
     <script type="text/javascript" src="js/models/widgets/widgetInnerPi.js"></script>
     <script type="text/javascript" src="js/models/widgets/widgetInnerWeather.js"></script>
 
     <!-- Collections -->
     <script type="text/javascript" src="js/collections/pinActions.js"></script>
+    <script type="text/javascript" src="js/collections/pins.js"></script>
     <script type="text/javascript" src="js/collections/widgets.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/central.css">
