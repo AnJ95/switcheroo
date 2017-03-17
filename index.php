@@ -30,6 +30,8 @@
     <script type="text/javascript" src="js/templates/page.js"></script>
     <script type="text/javascript" src="js/templates/header/headerBtns/headerBtn.js"></script>
     <script type="text/javascript" src="js/templates/header/header.js"></script>
+    <script type="text/javascript" src="js/templates/pinActions/pinActions.js"></script>
+    <script type="text/javascript" src="js/templates/pinActions/pinActionToggle.js"></script>
     <script type="text/javascript" src="js/templates/widgets/widgets.js"></script>
     <script type="text/javascript" src="js/templates/widgets/widget.js"></script>
     <script type="text/javascript" src="js/templates/widgets/widgetInnerPi.js"></script>

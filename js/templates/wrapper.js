@@ -15,11 +15,7 @@ window.app.templates.wrapper = function (model) {
 
     <div class="clear"></div>
 
-    <div class="playground"></div>
-
     <!-- Btn Section -->
-    <section class="btn-section">
-      <div class="flow"></div>
-    </section>
+    <div class="hook--pinActions"></div>
   `;
 }

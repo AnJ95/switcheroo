@@ -18,7 +18,7 @@ function initAfterLogin () {
 
 
   //loadInfo();
-  initButtons();
+  //initButtons();
   //initHeader();
   //window.setInterval(loadInfo, 3000);
 }
