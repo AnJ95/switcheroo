@@ -144,14 +144,18 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
       $trigger.click(function() {
         var reqName = clickRequest.requestName.call(that);
         var reqData = clickRequest.requestData.call(that);
-        var reqModelName = clickRequest.requestModelName.call(that);
+        var modelNameToUpdate = clickRequest.modelNameToUpdate.call(that);
+        var handler = clickRequest.handler;
 
         request(
           reqName,
           reqData,
           function (result) {
-            if (reqName != "") {
-              window.app.mvr.ModelManager.require(reqModelName).update(result);
+            if (modelNameToUpdate != "") {
+              window.app.mvr.ModelManager.require(modelNameToUpdate).update(result);
+            }
+            if (handler != undefined) {
+              handler();
             }
           }
         );

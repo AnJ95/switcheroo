@@ -24,7 +24,7 @@ window.app.view.pinActions.PinActionToggle = window.app.mvr.View.extend({
         value : !this.model.pinModel.isOn()
       }
     },
-    requestModelName : function() {
+    modelNameToUpdate : function() {
       return "pins";
     },
   }]
