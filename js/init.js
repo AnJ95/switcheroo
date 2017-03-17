@@ -12,10 +12,9 @@ function initAfterLogin () {
   window.app.ModelManager = window.app.mvr.ModelManager.new();
 
   // Instantiate Wrapper
-  window.app.view.Wrapper
+  window.wrapper = window.app.view.Wrapper
     .new($(".wrapper"))
-    .renderInitial();
-
+    .renderInitial()
 
   //loadInfo();
   //initButtons();

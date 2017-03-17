@@ -21,7 +21,7 @@ window.app.mvr.ModelManager = window.app.mvr.Extendable.extend({
   */
   require : function(name) {
     if (this.nameModelStore[name] == undefined) {
-      this.error("ModelManager: Tried requireing unknown model with name " + name);
+      this.error("ModelManager: Tried requiring unknown model with name " + name);
     }
     if (this.models[name] == undefined) {
       this.models[name] = this.nameModelStore[name]()
@@ -37,6 +37,7 @@ window.app.mvr.ModelManager = window.app.mvr.Extendable.extend({
   nameModelStore : {
     "widgets" : function(){return window.app.collections.Widgets;},
     "pinActions" : function(){return window.app.collections.PinActions;},
+    "pins" : function(){return window.app.collections.Pins;},
   }
 
 });

@@ -133,7 +133,7 @@
 }
 
 .btn--active .btn__toggle__icon:before {
-  transform: translateX(-15px) translateY(6px)rotate(-135deg) scaleX(0.5) ;
+  transform: translateX(-15px) translateY(6px) rotate(-135deg) scaleX(0.5);
 }
 .btn--active .btn__toggle__icon:after {
   transform: translateX(10px) rotate(-45deg);

@@ -4,16 +4,23 @@ window.app.mvr = window.app.mvr || {};
 window.app.mvr.Model = window.app.mvr.Observable.extend({
 
   /*
+  Boolean that signs if the model is yet populated
+  */
+  isPopulated : false,
+
+
+  /*
   Generic state that can hold any json data
   */
   json : {},
 
 
   /*
-  updates internat state and calls notifyObservers()
+  updates internal state and calls notifyObservers()
   */
   update : function (json) {
     this.json = json;
+    this.isPopulated = true;
     this.notifyObservers();
     return this;
   },
@@ -31,6 +38,7 @@ window.app.mvr.Model = window.app.mvr.Observable.extend({
       this.fetchRequestName(),
       this.fetchRequestData(),
       function (json) {
+        that.isPopulated = true;
         that.update.call(that, json);
       },
       function () {

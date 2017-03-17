@@ -23,6 +23,16 @@
         "type" : "toggle",
         "pin" : "29"
       }
+    },
+    {
+      "name" : "toggleLed",
+      "niceName" : "LED",
+      "color" : [229, 140, 150],
+      "icon" : "img/icon/toggleLed.png",
+      "action" : {
+        "type" : "toggle",
+        "pin" : "29"
+      }
     }
   ]
 }

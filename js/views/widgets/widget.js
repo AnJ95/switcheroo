@@ -15,8 +15,6 @@ window.app.view.widgets.Widget = window.app.mvr.View.extend({
       model : this.model
     }];
 
-    console.log(this.childViewDefinitions);
-
     window.app.mvr.View.renderInitial.call(this);
   },
 

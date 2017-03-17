@@ -6,7 +6,7 @@ window.app.mvr.Observable = window.app.mvr.Extendable.extend({
   /*
   List of observers that mus hold a notify() method
   */
-  observers : [],
+  observers : new Array(),
 
 
   /*
@@ -25,8 +25,7 @@ window.app.mvr.Observable = window.app.mvr.Extendable.extend({
   */
   attachObserver : function (observer) {
     // Add reference this.observers->observer
-    this.observers[this.observers.length] = observer;
-
+    Array.prototype.push.call(this.observers, observer)
     // Add reference observer.model->this
     observer.model = this;
     return this;

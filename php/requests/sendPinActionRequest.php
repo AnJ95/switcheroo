@@ -1,4 +1,5 @@
 <?php
+include("requests/getPinsRequest.php");
 
 class SendPinActionRequest extends Request {
     public function getResult($app, $requestData) {
@@ -6,11 +7,11 @@ class SendPinActionRequest extends Request {
         $app->err("Could not perform SendPinActionRequest because action type was not specified");
       }
 
-      $pin = intval($requestData['pin']);
+      $pin = intval($requestData['wPin']);
 
       switch ($requestData['type']) {
         case "toggle":
-          pinWrite($pin, ($requestData['value'] == "true" ? 0 : 1));
+          pinWrite($pin, ($requestData['value'] == "true" ? 1 : 0));
           break;
         case "pulse":
           pinWrite($pin, 0);
@@ -25,7 +26,8 @@ class SendPinActionRequest extends Request {
           break;
       }
 
-      return [];
+      $getPinsRequest = new GetPinsRequest();
+      return $getPinsRequest->getResult($app, []);
     }
 }
 

@@ -74,6 +74,8 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
   */
   childViewDefinitions : [],
 
+  clickRequests : [],
+
 
   /*
   Creates a new instance from a class.
@@ -129,7 +131,32 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
 
     this.renderInitialChildren();
 
+    this.attachClickRequests();
+
     return this;
+  },
+
+  attachClickRequests : function () {
+    var that = this;
+    $.each(this.clickRequests, function(i, clickRequest) {
+      var $trigger = (clickRequest.selector == "") ? that.$el : that.$el.find(selector);
+
+      $trigger.click(function() {
+        var reqName = clickRequest.requestName.call(that);
+        var reqData = clickRequest.requestData.call(that);
+        var reqModelName = clickRequest.requestModelName.call(that);
+
+        request(
+          reqName,
+          reqData,
+          function (result) {
+            if (reqName != "") {
+              window.app.mvr.ModelManager.require(reqModelName).update(result);
+            }
+          }
+        );
+      });
+    });
   },
 
   /*
@@ -145,6 +172,7 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
 
       if (def.model != undefined) {
         view.setModel(def.model)
+        def.model.attachObserver(view);
       }
 
       that.children[i] = view;
