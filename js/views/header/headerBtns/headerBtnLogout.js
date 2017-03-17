@@ -21,7 +21,7 @@ window.app.view.header.headerBtns.HeaderBtnLogout = window.app.view.header.heade
       return "";
     },
     handler : function() {
-      $(".login-section").removeClass("active");
+      document.location.reload();
     }
   }]
 });

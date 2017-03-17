@@ -29,6 +29,15 @@ window.app.mvr.Observable = window.app.mvr.Extendable.extend({
     // Add reference observer.model->this
     observer.model = this;
     return this;
+  },
+
+  /*
+  Removes all observers from the list that will be notified upon
+  calling notifyObservers()
+  */
+  detachObservers : function (observer) {
+    this.observers = new Array();
+    return this;
   }
 
 });

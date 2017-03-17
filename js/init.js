@@ -9,7 +9,7 @@ $(document).ready(function() {
 function initAfterLogin () {
 
   // Instantiate ModelManager
-  window.app.ModelManager = window.app.mvr.ModelManager.new();
+  window.app.ModelManager = window.app.ModelManager || window.app.mvr.ModelManager.new();
 
   // Instantiate Wrapper
   window.wrapper = window.app.view.Wrapper

@@ -14,7 +14,7 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
 
 
   /*
-  List of every childView, ist automatically filled.
+  List of every childView, is automatically filled.
   */
   children : {},
 
@@ -83,15 +83,16 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
   new : function ($el) {
     // Use default new-method
     var instance = window.app.mvr.Extendable.new.call(this);
+
+    instance.$el = $el;
+
     if (this.requireModel != undefined) {
       // Get Model/Collection from ModelManager
       // Data will be asynchronously populated
       // Start listening to Models/Collections changes
-      window.app.ModelManager.require(instance.requireModel).attachObserver(instance);
+      var model = window.app.ModelManager.require(instance.requireModel).attachObserver(instance);
     }
 
-    // Attach $el & return
-    instance.$el = $el;
     return instance;
   },
 
@@ -141,25 +142,36 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
     $.each(this.clickRequests, function(i, clickRequest) {
       var $trigger = (clickRequest.selector == "") ? that.$el : that.$el.find(selector);
 
-      $trigger.click(function() {
+      $trigger.on("click", function() {
         var reqName = clickRequest.requestName.call(that);
         var reqData = clickRequest.requestData.call(that);
         var modelNameToUpdate = clickRequest.modelNameToUpdate.call(that);
         var handler = clickRequest.handler;
 
-        request(
-          reqName,
-          reqData,
-          function (result) {
-            if (modelNameToUpdate != "") {
-              window.app.mvr.ModelManager.require(modelNameToUpdate).update(result);
+        if (handler != undefined) {
+          handler();
+        }
+
+        if (reqName != "") {
+          request(
+            reqName,
+            reqData,
+            function (result) {
+              if (modelNameToUpdate != "") {
+                window.app.mvr.ModelManager.require(modelNameToUpdate).update(result);
+              }
             }
-            if (handler != undefined) {
-              handler();
-            }
-          }
-        );
+          );
+        }
       });
+    });
+  },
+
+  detachClickRequests : function () {
+    var that = this;
+    $.each(this.clickRequests, function(i, clickRequest) {
+      var $trigger = (clickRequest.selector == "") ? that.$el : that.$el.find(selector);
+      $trigger.off("click");
     });
   },
 
@@ -194,6 +206,24 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
   renderUpdate : function () {
     this.renderInitial();
     return this;
+  },
+
+  destroy : function () {
+    console.log("DESTROYING");
+
+    $.each(this.children, function(i, child) {
+      child.destroy();
+    });
+
+    this.detachClickRequests();
+
+    this.$el.html("");
+
+    var that = this;
+    if (this.model != undefined && this.model.detachObserver != undefined) {
+        this.model.detachObserver(that);
+    }
+
   }
 
 });
