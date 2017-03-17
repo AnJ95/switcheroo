@@ -3,8 +3,15 @@ window.app.mvr = window.app.mvr || {};
 
 window.app.mvr.Extendable = {
 
+  /*
+  Holds a reference to the super class or undefined if there is none
+  */
   super : undefined,
 
+
+  /*
+  Extends a class that can overwrite or add functionality
+  */
   extend : function (extension) {
     // copy this first
     var deepCopy = jQuery.extend(true, {}, this);
@@ -25,6 +32,9 @@ window.app.mvr.Extendable = {
   },
 
 
+  /*
+  Instantiates the class
+  */
   new : function () {
     // copy this
     var deepCopy = jQuery.extend(true, {}, this);
@@ -32,12 +42,26 @@ window.app.mvr.Extendable = {
     return deepCopy;
   },
 
+
+  /*
+  Outputs a console information
+  */
   info : function(text) {
     console.log("Info: " + text, this);
   },
+
+
+  /*
+  Outputs a console warning
+  */
   warn : function(text) {
     console.warn("Warning: " + text, this);
   },
+
+
+  /*
+  Outputs a console error
+  */
   error : function(text) {
     console.error("Error: " + text, this);
   }

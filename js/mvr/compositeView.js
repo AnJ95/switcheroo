@@ -3,10 +3,19 @@ window.app.view = window.app.view || {};
 
 window.app.mvr.CompositeView = window.app.mvr.View.extend({
 
-  childViewDefinitions : [],
-
+  /*
+  Selector to an element inside this $el that will serve
+  as a parent for every childView
+  */
   childrenParentSelector : "",
 
+
+  /*
+  Updates the standard renderUpdate to add behavior to:
+    -define childViews by the given model
+    -creates an element for every child
+    -renders every child (in replace-mode)
+  */
   renderUpdate : function() {
     var that = this;
 
