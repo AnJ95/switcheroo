@@ -7,7 +7,7 @@ window.app.templates.widgets.widgetInnerWeather = function (model) {
   return `<div class="widget--weather__top">
     <div class="widget--weather__status">
       <img src="${model.conditionImage()}"/>
-      <b>${model.temperature()}</b>
+      <b>${model.temperature()}&#176;C</b>
     </div>
     <table class="widget--weather__top__right">
       <tr><td><b>Humidity</b></td><td>${model.humidity()}</td></tr>
@@ -19,19 +19,19 @@ window.app.templates.widgets.widgetInnerWeather = function (model) {
   <div class="widget--weather__bottom">
     <div class="widget--weather__status">
       <img src="${model.forecastConditionImage(0)}"/>
-      <b>${model.forecastTemperature(0)}</b>
+      <b>${model.forecastTemperature(0)}&#176;C</b>
     </div>
     <div class="widget--weather__status">
       <img src="${model.forecastConditionImage(1)}"/>
-      <b>${model.forecastTemperature(1)}</b>
+      <b>${model.forecastTemperature(1)}&#176;C</b>
     </div>
     <div class="widget--weather__status">
       <img src="${model.forecastConditionImage(2)}"/>
-      <b>${model.forecastTemperature(2)}</b>
+      <b>${model.forecastTemperature(2)}&#176;C</b>
     </div>
     <div class="widget--weather__status">
       <img src="${model.forecastConditionImage(3)}"/>
-      <b>${model.forecastTemperature(3)}</b>
+      <b>${model.forecastTemperature(3)}&#176;C</b>
     </div>
   </div>`;
 }

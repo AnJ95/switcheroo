@@ -27,7 +27,7 @@ class WeatherWidget extends Widget {
 
       for ($i = 0; $i < 4; ++$i) {
         $item = $channel->item->forecast[$i];
-        $result["forecast"][$i]["temperature"] = $this->f2c($item->low, 0) . "-" . $this->f2c($item->high, 0) . "&#176;C";
+        $result["forecast"][$i]["temperature"] = $this->f2c($item->low, 0) . "-" . $this->f2c($item->high, 0);
         $result["forecast"][$i]["condition"] = $item->code;
       }
 
