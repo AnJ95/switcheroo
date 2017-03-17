@@ -13,6 +13,11 @@ window.app.view.Wrapper = window.app.mvr.View.extend({
         selector : ".hook--widgets",
         viewClass : window.app.view.widgets.Widgets,
         renderStyle : "replace"
+      },
+      {
+        selector : ".hook--pinActions",
+        viewClass : window.app.view.pinActions.PinActions,
+        renderStyle : "replace"
       }
   ]
 });

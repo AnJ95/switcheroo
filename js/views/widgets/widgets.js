@@ -7,5 +7,9 @@ window.app.view.widgets.Widgets = window.app.mvr.CompositeView.extend({
 
   requireModel : "widgets",
 
-  childrenParentSelector : ".flow"
+  childrenParentSelector : ".flow",
+
+  getChildrenViewClassByModel : function(model) {
+    return window.app.view.widgets.Widget
+  }
 });

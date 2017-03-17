@@ -6,6 +6,6 @@ window.app.collections.PinActions = window.app.mvr.Collection.extend({
   fetchRequestData : function() {return [];},
 
   getModelClassByKey : function(key) {
-    return window.app.models.pinAction;
+    return window.app.models.PinAction;
   }
 });

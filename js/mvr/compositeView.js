@@ -9,7 +9,6 @@ window.app.mvr.CompositeView = window.app.mvr.View.extend({
   */
   childrenParentSelector : "",
 
-
   /*
   Updates the standard renderUpdate to add behavior to:
     -define childViews by the given model
@@ -20,12 +19,16 @@ window.app.mvr.CompositeView = window.app.mvr.View.extend({
     var that = this;
 
     $.each(this.model.models, function(modelName, model) {
-        that.childViewDefinitions[modelName] = {
-          selector : ".hook--" + modelName,
-          viewClass : window.app.view.widgets.Widget,
-          renderStyle : "replace",
-          model : model
-        }
+      var viewClass = that.getChildrenViewClassByModel(model);
+      if (viewClass == undefined) {
+        that.error("CompositeView: Could not determine ChildViews class by model: ", model);
+      }
+      that.childViewDefinitions[modelName] = {
+        selector : ".hook--" + modelName,
+        viewClass : viewClass,
+        renderStyle : "replace",
+        model : model
+      }
     });
 
     this.$el.find(this.childrenParentSelector).html("");
@@ -36,6 +39,13 @@ window.app.mvr.CompositeView = window.app.mvr.View.extend({
     });
 
     this.renderInitialChildren();
+  },
+
+  /*
+  Must return a ViewClass for the ChildViews, determined by a given model.
+  */
+  getChildrenViewClassByModel : function(model) {
+    return undefined;
   }
 
 });

@@ -35,7 +35,8 @@ window.app.mvr.ModelManager = window.app.mvr.Extendable.extend({
   ModelName to ModelClass store
   */
   nameModelStore : {
-    "widgets" : function(){return window.app.collections.Widgets;}
+    "widgets" : function(){return window.app.collections.Widgets;},
+    "pinActions" : function(){return window.app.collections.PinActions;},
   }
 
 });

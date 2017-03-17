@@ -45,6 +45,8 @@
     <script type="text/javascript" src="js/views/header/headerBtns/headerBtnLogout.js"></script>
     <script type="text/javascript" src="js/views/header/headerBtns/headerBtnPins.js"></script>
     <script type="text/javascript" src="js/views/header/header.js"></script>
+    <script type="text/javascript" src="js/views/pinActions/pinActions.js"></script>
+    <script type="text/javascript" src="js/views/pinActions/pinActionToggle.js"></script>
     <script type="text/javascript" src="js/views/widgets/widgets.js"></script>
     <script type="text/javascript" src="js/views/widgets/widget.js"></script>
     <script type="text/javascript" src="js/views/widgets/widgetInnerPi.js"></script>
