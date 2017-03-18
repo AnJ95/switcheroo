@@ -25,10 +25,30 @@
       }
     },
     {
-      "name" : "toggleLed",
-      "niceName" : "LED",
-      "color" : [229, 140, 150],
-      "icon" : "img/icon/toggleLed.png",
+      "name" : "switchHdmi",
+      "niceName" : "hmid",
+      "color" : [35, 118, 142],
+      "icon" : "img/icon/hdmi.png",
+      "action" : {
+        "type" : "toggle",
+        "pin" : "27"
+      }
+    },
+    {
+      "name" : "tvPower",
+      "niceName" : "TV",
+      "color" : [229, 175, 0],
+      "icon" : "img/icon/tv.png",
+      "action" : {
+        "type" : "toggle",
+        "pin" : "29"
+      }
+    },
+    {
+      "name" : "toggleCoffee",
+      "niceName" : "Coffee",
+      "color" : [49, 70, 156],
+      "icon" : "img/icon/coffee.png",
       "action" : {
         "type" : "toggle",
         "pin" : "29"
