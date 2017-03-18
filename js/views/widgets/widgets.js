@@ -1,8 +1,8 @@
 window.app = window.app || {};
-window.app.view = window.app.view || {};
-window.app.view.widgets = window.app.view.widgets || {};
+window.app.views = window.app.views || {};
+window.app.views.widgets = window.app.views.widgets || {};
 
-window.app.view.widgets.Widgets = window.app.mvr.CompositeView.extend({
+window.app.views.widgets.Widgets = window.app.mvr.CompositeView.extend({
   template : window.app.templates.widgets.widgets,
 
   requireModel : "widgets",
@@ -10,6 +10,6 @@ window.app.view.widgets.Widgets = window.app.mvr.CompositeView.extend({
   childrenParentSelector : ".flow",
 
   getChildrenViewClassByModel : function(model) {
-    return window.app.view.widgets.Widget
+    return window.app.views.widgets.Widget
   }
 });

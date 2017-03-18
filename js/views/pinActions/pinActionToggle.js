@@ -1,8 +1,8 @@
 window.app = window.app || {};
-window.app.view = window.app.view || {};
-window.app.view.pinActions = window.app.view.pinActions || {};
+window.app.views = window.app.views || {};
+window.app.views.pinActions = window.app.views.pinActions || {};
 
-window.app.view.pinActions.PinActionToggle = window.app.mvr.View.extend({
+window.app.views.pinActions.PinActionToggle = window.app.mvr.View.extend({
   template : window.app.templates.pinActions.pinActionToggle,
 
   renderUpdate : function() {

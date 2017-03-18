@@ -1,6 +1,6 @@
 window.app = window.app || {};
-window.app.view = window.app.view || {};
+window.app.views = window.app.views || {};
 
-window.app.view.Page = window.app.mvr.View.extend({
+window.app.views.Page = window.app.mvr.View.extend({
   template : window.app.templates.page
 });

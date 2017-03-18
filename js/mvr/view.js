@@ -1,5 +1,5 @@
 window.app = window.app || {};
-window.app.view = window.app.view || {};
+window.app.views = window.app.views || {};
 
 window.app.mvr.View = window.app.mvr.Extendable.extend({
 

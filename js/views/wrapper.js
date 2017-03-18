@@ -1,22 +1,22 @@
 window.app = window.app || {};
-window.app.view = window.app.view || {};
+window.app.views = window.app.views || {};
 
-window.app.view.Wrapper = window.app.mvr.View.extend({
+window.app.views.Wrapper = window.app.mvr.View.extend({
   template : window.app.templates.wrapper,
 
   childViewDefinitions : [
       {
         selector : "header",
-        viewClass : window.app.view.header.Header
+        viewClass : window.app.views.header.Header
       },
       {
         selector : ".hook--widgets",
-        viewClass : window.app.view.widgets.Widgets,
+        viewClass : window.app.views.widgets.Widgets,
         renderStyle : "replace"
       },
       {
         selector : ".hook--pinActions",
-        viewClass : window.app.view.pinActions.PinActions,
+        viewClass : window.app.views.pinActions.PinActions,
         renderStyle : "replace"
       }
   ]

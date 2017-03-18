@@ -1,8 +1,8 @@
 window.app = window.app || {};
-window.app.view = window.app.view || {};
-window.app.view.pinActions = window.app.view.pinActions || {};
+window.app.views = window.app.views || {};
+window.app.views.pinActions = window.app.views.pinActions || {};
 
-window.app.view.pinActions.PinActions = window.app.mvr.CompositeView.extend({
+window.app.views.pinActions.PinActions = window.app.mvr.CompositeView.extend({
   template : window.app.templates.pinActions.pinActions,
 
   requireModel : "pinActions",
@@ -12,10 +12,10 @@ window.app.view.pinActions.PinActions = window.app.mvr.CompositeView.extend({
   getChildrenViewClassByModel : function(model) {
     switch(model.pinActionType()) {
       case "toggle":
-        return window.app.view.pinActions.PinActionToggle;
+        return window.app.views.pinActions.PinActionToggle;
         break;
       case "pulse":
-        return window.app.view.pinActions.PinActionPulse;
+        return window.app.views.pinActions.PinActionPulse;
         break;
     }
     return undefined;

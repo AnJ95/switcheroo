@@ -1,8 +1,8 @@
 window.app = window.app || {};
-window.app.view = window.app.view || {};
-window.app.view.widgets = window.app.view.widgets || {};
+window.app.views = window.app.views || {};
+window.app.views.widgets = window.app.views.widgets || {};
 
-window.app.view.widgets.Widget = window.app.mvr.View.extend({
+window.app.views.widgets.Widget = window.app.mvr.View.extend({
   template : window.app.templates.widgets.widget,
 
   childViewDefinitions : [],
@@ -21,10 +21,10 @@ window.app.view.widgets.Widget = window.app.mvr.View.extend({
   getWidgetInnerClassByType : function (type) {
     switch (type) {
       case "pi":
-        return window.app.view.widgets.WidgetInnerPi;
+        return window.app.views.widgets.WidgetInnerPi;
         break;
       case "weather":
-        return window.app.view.widgets.WidgetInnerWeather;
+        return window.app.views.widgets.WidgetInnerWeather;
         break;
       default:
       this.error("Tried creating unknown widget of type " + type);

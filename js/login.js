@@ -1,6 +1,6 @@
 function initLogin() {
 
-  window.app.view.Page
+  window.app.views.Page
     .new($("body"))
     .renderInitial();
     
