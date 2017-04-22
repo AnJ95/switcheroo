@@ -17,6 +17,9 @@ window.app.views.pinActions.PinActions = window.app.mvr.CompositeView.extend({
       case "pulse":
         return window.app.views.pinActions.PinActionPulse;
         break;
+      case "rgbled":
+        return window.app.views.pinActions.PinActionRGB;
+        break;
     }
     return undefined;
   }

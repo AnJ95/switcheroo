@@ -23,8 +23,8 @@
         "type" : "rgbled",
         "pins" : {
           "red" : "29",
-          "red" : "28",
-          "red" : "27"
+          "green" : "28",
+          "blue" : "27"
         }
       }
     },

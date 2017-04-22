@@ -32,11 +32,36 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
   update : function (json) {
     window.app.mvr.Model.update.call(this, json);
 
+    var that = this;
+
+    if (this.json.action.pins != undefined) {
+
+      // This pinAction will save several pinActions in this list.
+      this.subPinActions = {};
+
+      console.log("MULTIPLEXING..." , this);
+      $.each(this.json.action.pins, function (pinName, wPin) {
+
+        var json = jQuery.extend(true, {}, that.json);
+
+        json.action.pin = wPin;
+        delete json.action.pins;
+
+        console.log(json);
+
+        that.subPinActions[pinName] = window.app.models.PinAction
+          .new()
+          .update(json);
+      });
+
+      return this;
+    }
+
     if (!this.childModelInitialized) {
       this.childModelInitialized = true;
 
       var pins = window.app.mvr.ModelManager.require("pins");
-      var that = this;
+
 
       function attachChildModel () {
         that.pinModel = pins.getPinByWPin(that.wPin());

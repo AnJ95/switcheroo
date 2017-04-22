@@ -17,7 +17,7 @@ window.app.mvr.CompositeView = window.app.mvr.View.extend({
   */
   renderUpdate : function() {
     var that = this;
-
+    console.log(this.model.models);
     $.each(this.model.models, function(modelName, model) {
       var viewClass = that.getChildrenViewClassByModel(model);
       if (viewClass == undefined) {
