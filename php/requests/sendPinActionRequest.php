@@ -15,9 +15,9 @@ class SendPinActionRequest extends Request {
           break;
         case "pulse":
           pinWrite($pin, 0);
-          usleep(10000);
+          usleep(100000);
           pinWrite($pin, 1);
-          usleep(10000);
+          usleep(100000);
           pinWrite($pin, 0);
           break;
         default:

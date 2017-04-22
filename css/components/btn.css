@@ -92,6 +92,12 @@
   animation: 0.3s ease 0s normal none infinite running glowEffect;
 }
 
+
+.btn--pulse .btn__icon {
+  width: 100%;
+  border-bottom-right-radius: 7px;
+}
+
 .btn__toggle {
 	background-color: #FFF;
 	float: right;

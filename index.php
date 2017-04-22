@@ -32,6 +32,7 @@
     <script type="text/javascript" src="js/templates/header/header.js"></script>
     <script type="text/javascript" src="js/templates/pinActions/pinActions.js"></script>
     <script type="text/javascript" src="js/templates/pinActions/pinActionToggle.js"></script>
+    <script type="text/javascript" src="js/templates/pinActions/pinActionPulse.js"></script>
     <script type="text/javascript" src="js/templates/widgets/widgets.js"></script>
     <script type="text/javascript" src="js/templates/widgets/widget.js"></script>
     <script type="text/javascript" src="js/templates/widgets/widgetInnerPi.js"></script>
@@ -47,6 +48,7 @@
     <script type="text/javascript" src="js/views/header/header.js"></script>
     <script type="text/javascript" src="js/views/pinActions/pinActions.js"></script>
     <script type="text/javascript" src="js/views/pinActions/pinActionToggle.js"></script>
+    <script type="text/javascript" src="js/views/pinActions/pinActionPulse.js"></script>
     <script type="text/javascript" src="js/views/widgets/widgets.js"></script>
     <script type="text/javascript" src="js/views/widgets/widget.js"></script>
     <script type="text/javascript" src="js/views/widgets/widgetInnerPi.js"></script>
