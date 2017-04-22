@@ -1,0 +1,25 @@
+.btn--rgb__third {
+  float: left;
+  width: 33.33%;
+  height: 100%;
+  position: relative;
+  top: 0%;
+  border-radius: 7px;
+}
+
+.btn--rgb__handle {
+  position: absolute;
+  height: 14px;
+  width: 100%;
+  border-radius: 7px;
+  border: 2px solid #FFF;
+}
+
+.btn--rgb-red .btn--rgb__handle {background-color: #F00}
+.btn--rgb-green .btn--rgb__handle {background-color: #0F0}
+.btn--rgb-blue .btn--rgb__handle {background-color: #00F}
+
+.btn--rgb__invisible-trigger {
+  height: 0;
+  width: 0;
+}

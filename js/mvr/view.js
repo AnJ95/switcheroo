@@ -140,7 +140,7 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
   attachClickRequests : function () {
     var that = this;
     $.each(this.clickRequests, function(i, clickRequest) {
-      var $trigger = (clickRequest.selector == "") ? that.$el : that.$el.find(selector);
+      var $trigger = (clickRequest.selector == "") ? that.$el : that.$el.find(clickRequest.selector);
 
       $trigger.on("click", function() {
         var reqName = clickRequest.requestName.call(that);

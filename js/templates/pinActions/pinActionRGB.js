@@ -3,12 +3,19 @@ window.app.templates = window.app.templates || {};
 window.app.templates.pinActions = window.app.templates.pinActions || {};
 
 window.app.templates.pinActions.pinActionRGB = function (model) {
-  return `<button class="half btn btn--toggle" style="background-color: ${model.color()}">
-    <div class="btn__icon" style="box-shadow: 0 3px 0 0 ${model.darkColor()};">
-      <div style="background-image: url(${model.icon()});"></div>
+  return `<div class="full btn btn--rgb" style="background-color: ${model.color()}">
+  <div class="btn--rgb__third btn--rgb-red">
+    <div class="btn--rgb__handle">
     </div>
-    <div class="btn__toggle">
-      <span class="btn__toggle__icon"></span>
+  </div>
+  <div class="btn--rgb__third btn--rgb-green">
+    <div class="btn--rgb__handle">
     </div>
-  </button>`;
+  </div>
+  <div class="btn--rgb__third btn--rgb-blue">
+    <div class="btn--rgb__handle">
+    </div>
+  </div>
+  <div class="btn--rgb__invisible-trigger"></div>
+  </div>`;
 }

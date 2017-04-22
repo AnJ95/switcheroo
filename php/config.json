@@ -17,7 +17,7 @@
     {
       "name" : "rgbLed",
       "niceName" : "RGB LED",
-      "color" : [49, 70, 156],
+      "color" : [255, 255, 255],
       "icon" : "img/icon/toggleLed.png",
       "action" : {
         "type" : "rgbled",

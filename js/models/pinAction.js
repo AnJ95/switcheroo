@@ -26,6 +26,9 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
   isOn : function () {
     return (this.pinModel != undefined && this.pinModel.isPopulated) ? this.pinModel.isOn() : false;
   },
+  pwm : function () {
+    return (this.pinModel != undefined && this.pinModel.isPopulated) ? this.pinModel.pwm() : 0;
+  },
 
   childModelInitialized : false,
 
@@ -39,15 +42,12 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
       // This pinAction will save several pinActions in this list.
       this.subPinActions = {};
 
-      console.log("MULTIPLEXING..." , this);
       $.each(this.json.action.pins, function (pinName, wPin) {
 
         var json = jQuery.extend(true, {}, that.json);
 
         json.action.pin = wPin;
         delete json.action.pins;
-
-        console.log(json);
 
         that.subPinActions[pinName] = window.app.models.PinAction
           .new()
