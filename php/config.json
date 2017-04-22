@@ -22,9 +22,9 @@
       "action" : {
         "type" : "rgbled",
         "pins" : {
-          "red" : "29",
-          "green" : "28",
-          "blue" : "27"
+          "red" : "1",
+          "green" : "26",
+          "blue" : "23"
         }
       }
     },
