@@ -1,30 +1,29 @@
-const STATIC_DIR      = __dirname + "/..";
-const STATIC_PORT     = 8080;
-const DEBUG_PREFIX    = "### ";
-
-console.log(DEBUG_PREFIX + 'Starting server...');
-
 var
   express = require('express'),
   app = express(),
   server = require('http').createServer(app),
-  io = require('socket.io').listen(server);
+  io = require('socket.io').listen(server),
+  c = require('../config.json'),
+  switcheroo = require('./switcheroo.js');
 
+console.log(c.nodejs.debug_server_prefix + 'Starting server...');
 
-server.listen(STATIC_PORT);
+server.listen(c.nodejs.port);
 
 app.configure(function(){
-	app.use(express.static(STATIC_DIR));
+	app.use(express.static(__dirname + c.nodejs.dir));
 });
 
 
 io.sockets.on('connection', function (socket) {
-	socket.emit('chat', { zeit: new Date(), text: 'Du bist nun mit dem Server verbunden!' });
-	socket.on('chat', function (data) {
-		io.sockets.emit('chat', { zeit: new Date(), name: data.name || 'Anonym', text: data.text });
+  console.log(c.nodejs.debug_socket_prefix + 'new socket connection established');
+
+	socket.on('auth', function (data) {
+    var result = switcheroo.tryAuth(data.pwd);
+    io.sockets.emit('auth', {success : result});
 	});
 });
 
 
-console.log(DEBUG_PREFIX + STATIC_DIR + ":" + STATIC_PORT);
-console.log(DEBUG_PREFIX + 'Done.');
+console.log(c.nodejs.debug_server_prefix + __dirname + c.nodejs.dir + ":" + c.nodejs.port);
+console.log(c.nodejs.debug_server_prefix + 'Done.');

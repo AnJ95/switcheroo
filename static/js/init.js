@@ -2,6 +2,7 @@
 // Start login sequence after loading the whole page
 // The login sequence will call initAfterLogin()
 $(document).ready(function() {
+  window.app.socket = io.connect();
   initLogin();
 });
 

@@ -3,7 +3,7 @@ function initLogin() {
   window.app.views.Page
     .new($("body"))
     .renderInitial();
-    
+
   // Preload sound
   var notes = new Array("c", "d", "b", "a", "f");
   $.each(notes, function(i, note) {
@@ -37,25 +37,19 @@ function initLogin() {
 
   // attempt to login with given pwd, may login even with wrong password if already logged in
   function login(pwd) {
-    $.ajax({
-  		url: "request/auth.php",
-      method: "post",
-  		data: {
-        pwd: pwd
-      },
-  		success: function (data) {
-        if (data.success) {
-            initAfterLogin();
-            $(".login-section").addClass("active");
-        } else {
-          console.log("Could not login: " + data.text);
-        }
-      },
-  		error: function () {
-  			console.log("Could not load login file");
-  		},
-  		dataType: "json"
-  	});
+
+    window.app.socket.emit('auth', {
+      pwd: pwd
+    });
+
+    window.app.socket.on('auth', function (data) {
+      if (data.success) {
+        initAfterLogin();
+        $(".login-section").addClass("active");
+      } else {
+        console.log("Could not login: " + data.text);
+      }
+    });
   }
 
   // initial login to check whether cookie authenticates already
