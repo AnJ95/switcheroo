@@ -5,14 +5,11 @@ function request(requestName, requestData, successHandler, errorHandler, general
   errorHandler = errorHandler || function() {};
   generalHandler = generalHandler || function() {};
 
-  $.ajax({
-    url: "request/",
-    method: "post",
-    data: {
-      "requestName" : requestName,
-      "requestData" : requestData
-    },
-    success: function (data) {
+  console.log("Starting request \"" + requestName + "\"");
+  // attach handler if there is none already
+  if (window.app.socket._callbacks[requestName] == undefined) {
+    window.app.socket.on(requestName, function (data) {
+      console.log("Request \"" + requestName + "\" done", data);
       generalHandler();
       if (data.success) {
         successHandler(data.result);
@@ -20,12 +17,8 @@ function request(requestName, requestData, successHandler, errorHandler, general
         errorHandler();
         console.log("Request \"" + requestName + "\" returned with an error: " + data.error);
       }
-    },
-    error: function () {
-      generalHandler();
-      errorHandler();
-      console.log("Could not perform request \"" + requestName + "\"");
-    },
-    dataType: "json"
-  });
+    });
+  }
+
+  window.app.socket.emit(requestName, requestData);
 }

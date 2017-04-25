@@ -11,11 +11,12 @@ GetPinActions.prototype.app = null;
 GetPinActions.prototype.socket = null;
 
 GetPinActions.prototype.getRequestName = function() {
-  return 'getPinActions';
+  return 'GetPinActions';
 };
 
 GetPinActions.prototype.requestHandler = function (data) {
   this.socket.emit(this.getRequestName(), {
+    success : true,
     result : c.pinActions
   });
 };

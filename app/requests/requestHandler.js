@@ -10,8 +10,8 @@ function RequestHandler() {}
 RequestHandler.prototype.addRequest = function(request, app, socket) {
   app.debug.socket("Initializing socket receive for " + request.getRequestName());
 
-  this.app = app;
-  this.socket = socket;
+  request.app = app;
+  request.socket = socket;
 
   socket.on(request.getRequestName(), function(data) {
     request.requestHandler(data);
