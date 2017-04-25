@@ -1,10 +1,24 @@
 var
   c = require('../config.json'),
-  sha1 = require('sha1');
+  sha1 = require('sha1'),
+  reqGetPinActions = require('./requests/getPinActions.js');
 
+/* ####################################################### */
 
 function Switcheroo() {}
 
+/* ####################################################### */
+
+Switcheroo.prototype.init = function(socket) {
+
+  socket.on('auth', function (data) {
+    var result = this.tryAuth(data.pwd);
+    socket.emit('auth', {success : result});
+  });
+
+  reqGetPinActions.init(this, socket);
+
+}
 
 /* ####################################################### */
 
@@ -29,6 +43,18 @@ Switcheroo.prototype.tryAuth = function(authHash){
 
   return false;
 };
+
+Switcheroo.prototype.debug = {
+  server : function (msg) {
+    console.log(c.nodejs.debug_server_prefix + msg);
+  },
+  socket : function (msg) {
+    console.log(c.nodejs.debug_socket_prefix + msg);
+  },
+  warn : function (msg) {
+    console.warn(msg);
+  }
+}
 
 /* ####################################################### */
 

@@ -18,10 +18,8 @@ app.configure(function(){
 io.sockets.on('connection', function (socket) {
   console.log(c.nodejs.debug_socket_prefix + 'new socket connection established');
 
-	socket.on('auth', function (data) {
-    var result = switcheroo.tryAuth(data.pwd);
-    io.sockets.emit('auth', {success : result});
-	});
+	switcheroo.init(socket);
+
 });
 
 
