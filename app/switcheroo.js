@@ -1,6 +1,7 @@
 var
   c = require('../config.json'),
   sha1 = require('sha1'),
+  reqHandler = require('./requests/requestHandler.js'),
   reqGetPinActions = require('./requests/getPinActions.js');
 
 /* ####################################################### */
@@ -11,12 +12,13 @@ function Switcheroo() {}
 
 Switcheroo.prototype.init = function(socket) {
 
+  var that = this;
   socket.on('auth', function (data) {
-    var result = this.tryAuth(data.pwd);
+    var result = that.tryAuth(data.pwd);
     socket.emit('auth', {success : result});
   });
 
-  reqGetPinActions.init(this, socket);
+  reqHandler.addRequest(reqGetPinActions, this, socket);
 
 }
 

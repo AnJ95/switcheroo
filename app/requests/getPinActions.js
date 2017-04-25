@@ -1,12 +1,24 @@
 var
-  extend = require('extend'),
-  request = require('./request.js'),
   c = require('../../config.json');
 
 
 function GetPinActions () {};
 
-extend(true, request, GetPinActions);
+// will be set by RequestHandler
+GetPinActions.prototype.app = null;
+
+// will be set by RequestHandler
+GetPinActions.prototype.socket = null;
+
+GetPinActions.prototype.getRequestName = function() {
+  return 'getPinActions';
+};
+
+GetPinActions.prototype.requestHandler = function (data) {
+  this.socket.emit(this.getRequestName(), {
+    result : c.pinActions
+  });
+};
 
 /* ####################################################### */
 
