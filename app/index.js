@@ -6,7 +6,7 @@ var
   c = require('../config.json'),
   switcheroo = require('./switcheroo.js');
 
-console.log(c.nodejs.debug_server_prefix + 'Starting server...');
+switcheroo.debug.server('Starting server...')
 
 server.listen(c.nodejs.port);
 
@@ -16,12 +16,13 @@ app.configure(function(){
 
 
 io.sockets.on('connection', function (socket) {
-  console.log(c.nodejs.debug_socket_prefix + 'new socket connection established');
+  switcheroo.debug.socket('new socket connection established');
 
-	switcheroo.init(socket);
+	switcheroo.initConnection(socket);
 
 });
 
 
-console.log(c.nodejs.debug_server_prefix + __dirname + c.nodejs.dir + ":" + c.nodejs.port);
-console.log(c.nodejs.debug_server_prefix + 'Done.');
+switcheroo.debug.server(__dirname + c.nodejs.dir)
+switcheroo.debug.server(c.nodejs.port);
+switcheroo.debug.server('Done.')

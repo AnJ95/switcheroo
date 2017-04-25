@@ -1,8 +1,18 @@
 var
   c = require('../config.json'),
   sha1 = require('sha1'),
+  colors = require('colors'),
   reqHandler = require('./requests/requestHandler.js'),
   reqGetPinActions = require('./requests/getPinActions.js');
+  reqGetWidgets = require('./requests/getWidgets.js');
+
+
+colors.setTheme({
+  server: 'green',
+  socket: 'blue',
+  warn: 'yellow',
+  error: 'red'
+});
 
 /* ####################################################### */
 
@@ -10,7 +20,7 @@ function Switcheroo() {}
 
 /* ####################################################### */
 
-Switcheroo.prototype.init = function(socket) {
+Switcheroo.prototype.initConnection = function(socket) {
 
   var that = this;
   socket.on('auth', function (data) {
@@ -19,7 +29,7 @@ Switcheroo.prototype.init = function(socket) {
   });
 
   reqHandler.addRequest(reqGetPinActions, this, socket);
-
+  reqHandler.addRequest(reqGetWidgets, this, socket);
 }
 
 /* ####################################################### */
@@ -48,13 +58,16 @@ Switcheroo.prototype.tryAuth = function(authHash){
 
 Switcheroo.prototype.debug = {
   server : function (msg) {
-    console.log(c.nodejs.debug_server_prefix + msg);
+    console.log((c.nodejs.debug_server_prefix + msg).server);
   },
   socket : function (msg) {
-    console.log(c.nodejs.debug_socket_prefix + msg);
+    console.log((c.nodejs.debug_socket_prefix + msg).socket);
   },
   warn : function (msg) {
-    console.warn(msg);
+    console.warn(msg.warn);
+  },
+  error : function (msg) {
+    console.error(msg.error);
   }
 }
 
