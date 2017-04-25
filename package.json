@@ -14,6 +14,7 @@
 		"socket.io": "*",
     "sha1": "*",
     "child_process": "*",
-    "colors": "*"
+    "colors": "*",
+    "request": "*"
 	}
 }
