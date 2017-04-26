@@ -2,7 +2,9 @@ var
   c = require('../../config.json');
 
 
-function GetPinActions () {};
+function GetPinActions (app) {
+  this.app = app;
+};
 
 // will be set by RequestHandler
 GetPinActions.prototype.app = null;
@@ -25,4 +27,4 @@ GetPinActions.prototype.requestHandler = function (data) {
 
 /* ####################################################### */
 
-module.exports = new GetPinActions();
+module.exports = GetPinActions;

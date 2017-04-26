@@ -6,10 +6,10 @@ window.app.collections.Pins = window.app.mvr.Collection.extend({
   fetchRequestName : function() {return "GetPins";},
   fetchRequestData : function() {return [];},
 
-  getPinByWPin : function(wPin) {
+  getPinById : function(id) {
     var resultingPin = undefined;
     $.each(this.models, function(id, pin) {
-        if (pin.wPin() == wPin) {
+        if (pin.getId() == id) {
           resultingPin = pin;
         }
     });

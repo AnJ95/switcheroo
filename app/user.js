@@ -1,7 +1,12 @@
 var
   reqHandler = require('./requests/requestHandler.js'),
-  reqGetPinActions = require('./requests/getPinActions.js');
-  reqGetWidgets = require('./requests/getWidgets.js');
+  reqGetPinActions = require('./requests/getPinActions.js'),
+  reqGetPins = require('./requests/getPins.js'),
+  reqGetWidgets = require('./requests/getWidgets.js'),
+  reqSendPinAction = require('./requests/sendPinAction.js');
+
+var
+  reqs = [reqGetPinActions, reqGetPins, reqGetWidgets, reqSendPinAction];
 
 function User(app, socket) {
   this.app = app;
@@ -35,8 +40,10 @@ User.prototype.awaitAuth = function() {
 }
 
 User.prototype.awaitRequests = function() {
-  reqHandler.initConnection(reqGetPinActions, this.app, this.socket);
-  reqHandler.initConnection(reqGetWidgets, this.app, this.socket);
+
+  for (var i = 0; i < reqs.length; i++) {
+    reqHandler.initConnection(new (reqs[i])(this.app), this.app, this.socket);
+  }
 }
 
 

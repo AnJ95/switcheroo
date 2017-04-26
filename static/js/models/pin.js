@@ -2,8 +2,8 @@ window.app = window.app || {};
 window.app.models = window.app.models || {};
 
 window.app.models.Pin = window.app.mvr.Model.extend({
-  wPin : function() {
-    return this.json.wPin;
+  getId : function() {
+    return this.json.id;
   },
   isOn : function() {
     return this.json.val == "1";

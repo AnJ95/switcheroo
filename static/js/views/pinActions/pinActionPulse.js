@@ -18,7 +18,7 @@ window.app.views.pinActions.PinActionPulse = window.app.mvr.View.extend({
     requestData : function() {
       return {
         type : this.model.pinActionType(),
-        wPin : this.model.wPin()
+        pin : this.model.pinId()
       }
     },
     modelNameToUpdate : function() {

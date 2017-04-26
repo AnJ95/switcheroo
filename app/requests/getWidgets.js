@@ -4,7 +4,9 @@ var
   widgetWeather = require('./../widgets/weather.js');
 
 
-function GetWidgets () {};
+function GetWidgets (app) {
+  this.app = app;
+};;
 
 // will be set by RequestHandler
 GetWidgets.prototype.app = null;
@@ -65,4 +67,4 @@ GetWidgets.prototype.requestHandler = function (data) {
 
 /* ####################################################### */
 
-module.exports = new GetWidgets();
+module.exports = GetWidgets;

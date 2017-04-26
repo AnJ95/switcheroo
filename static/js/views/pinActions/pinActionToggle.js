@@ -20,7 +20,7 @@ window.app.views.pinActions.PinActionToggle = window.app.mvr.View.extend({
     requestData : function() {
       return {
         type : this.model.pinActionType(),
-        wPin : this.model.wPin(),
+        pin : this.model.pinId(),
         value : !this.model.pinModel.isOn()
       }
     },

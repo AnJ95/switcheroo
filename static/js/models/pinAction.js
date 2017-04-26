@@ -19,7 +19,7 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
     return this.json.icon
   },
 
-  wPin : function() {
+  pinId : function() {
     return this.json.action.pin;
   },
 
@@ -64,7 +64,7 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
 
 
       function attachChildModel () {
-        that.pinModel = pins.getPinByWPin(that.wPin());
+        that.pinModel = pins.getPinById(that.pinId());
         //console.log("ATTACH");
         that.pinModel.attachObserver({
           // This happens whenever there are changes to this pin in the future

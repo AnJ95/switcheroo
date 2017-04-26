@@ -9,7 +9,7 @@ function request(requestName, requestData, successHandler, errorHandler, general
   // attach handler if there is none already
   if (window.app.socket._callbacks[requestName] == undefined) {
     window.app.socket.on(requestName, function (data) {
-      console.log("Request \"" + requestName + "\" done", data);
+      console.log("Request \"" + requestName + "\" returned with data: ", data);
       generalHandler();
       if (data.success) {
         successHandler(data.result);

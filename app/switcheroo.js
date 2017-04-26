@@ -19,6 +19,7 @@ var
 
 function Switcheroo(io) {
   this.io = io;
+  this.pins = new (require('./pins.js'))(this);
 }
 
 Switcheroo.prototype.emit = function(name, data) {
