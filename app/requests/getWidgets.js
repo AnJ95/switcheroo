@@ -4,42 +4,65 @@ var
   widgetWeather = require('./../widgets/weather.js');
 
 
-function GetPinActions () {};
+function GetWidgets () {};
 
 // will be set by RequestHandler
-GetPinActions.prototype.app = null;
-GetPinActions.prototype.socket = null;
+GetWidgets.prototype.app = null;
+GetWidgets.prototype.socket = null;
 
-GetPinActions.prototype.getRequestName = function() {
+GetWidgets.prototype.getRequestName = function() {
   return 'GetWidgets';
 };
 
-GetPinActions.prototype.requestHandler = function (data) {
+GetWidgets.prototype.widgets = [
+  {
+    widget : widgetPi,
+    updateInterval : 1000 * 10 // every 10 seconds
+  },
+  {
+    widget : widgetWeather,
+    updateInterval : 1000 * 60 * 60 // once per hour
+  },
+];
 
+GetWidgets.prototype.init = function () {
   var that = this;
+  // send every widget periodically in defined intervals
+  for (var i = 0; i < this.widgets.length; ++i) {
+    var widgetSpec = this.widgets[i]
 
-  widgetPi(this.app, function(result) {
-    that.socket.emit(that.getRequestName(), {
+    if (widgetSpec.updateInterval != undefined) {
+      setInterval(function(w) {
+        that.sendWidget(w);
+      }, widgetSpec.updateInterval, widgetSpec.widget);
+    }
+  }
+};
+
+GetWidgets.prototype.sendWidget = function (widget) {
+  var that = this;
+  // Get this specific widgets response
+  widget(this.app, function(result) {
+    // Prepare answer-json
+    var json = {
       success : true,
-      result : {
-        pi : result
-      }
-    });
+      result : {}
+    };
+    json.result[result.type] = result;
+    // send json
+    that.socket.emit(that.getRequestName(), json);
   });
+}
 
-  widgetWeather(this.app, function(result) {
-    that.socket.emit(that.getRequestName(), {
-      success : true,
-      result : {
-        weather : result
-      }
-    });
-  });
-
+GetWidgets.prototype.requestHandler = function (data) {
+  // send every widget
+  for (var i = 0; i < this.widgets.length; ++i) {
+    this.sendWidget(this.widgets[i].widget);
+  }
 };
 
 
 
 /* ####################################################### */
 
-module.exports = new GetPinActions();
+module.exports = new GetWidgets();

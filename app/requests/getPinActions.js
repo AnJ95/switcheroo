@@ -12,6 +12,10 @@ GetPinActions.prototype.getRequestName = function() {
   return 'GetPinActions';
 };
 
+GetPinActions.prototype.init = function () {
+
+};
+
 GetPinActions.prototype.requestHandler = function (data) {
   this.socket.emit(this.getRequestName(), {
     success : true,

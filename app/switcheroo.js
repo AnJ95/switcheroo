@@ -28,8 +28,8 @@ Switcheroo.prototype.initConnection = function(socket) {
     socket.emit('auth', {success : result});
   });
 
-  reqHandler.addRequest(reqGetPinActions, this, socket);
-  reqHandler.addRequest(reqGetWidgets, this, socket);
+  reqHandler.initConnection(reqGetPinActions, this, socket);
+  reqHandler.initConnection(reqGetWidgets, this, socket);
 }
 
 /* ####################################################### */

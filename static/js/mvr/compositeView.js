@@ -31,19 +31,21 @@ window.app.mvr.CompositeView = window.app.mvr.View.extend({
       if (viewClass == undefined) {
         that.error("CompositeView: Could not determine ChildViews class by model: ", model);
       }
-      that.childViewDefinitions[modelName] = that.childViewDefinitions[modelName] || {
-        selector : ".hook--" + modelName,
-        viewClass : viewClass,
-        renderStyle : "replace",
-        model : model
-      }
-    });
+      if (that.childViewDefinitions[modelName] == undefined) {
 
-    var that = this;
-    $.each(this.model.json, function(widgetType, widgetData) {
-        if (that.$el.find(that.childrenParentSelector).find('hook--' + widgetType).length == 0) {
-          that.$el.find(that.childrenParentSelector).append('<div class="hook--' + widgetType + '"></div>');
+        that.childViewDefinitions[modelName] = {
+          selector : ".hook--" + modelName,
+          viewClass : viewClass,
+          renderStyle : "replace",
+          model : model
         }
+
+        var $parent = that.$el.find(that.childrenParentSelector);
+        if ($parent.find('.hook--' + modelName).length == 0) {
+          $parent.append('<div class="hook--' + modelName + '"></div>');
+        }
+      }
+
     });
 
     this.renderInitialChildren();
