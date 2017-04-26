@@ -15,7 +15,11 @@ window.app.views.widgets.Widget = window.app.mvr.View.extend({
       model : this.model
     }];
 
-    window.app.mvr.View.renderInitial.call(this);
+    var that = this;
+    window.setTimeout(function() {
+        window.app.mvr.View.renderInitial.call(that);
+    }, 1);
+
   },
 
   getWidgetInnerClassByType : function (type) {
