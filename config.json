@@ -8,7 +8,8 @@
     "dir" : "/../static",
     "port" : "8080",
     "debug_server_prefix" : "### ",
-    "debug_socket_prefix" : "+++ "
+    "debug_socket_prefix" : "+++ ",
+    "useActualPigpio" : false
   },
   "webInterface" : {
     "authHash" : "9e676808fe39477469216a1e5e33c9f76f2ae465"
