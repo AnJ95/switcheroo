@@ -10,9 +10,9 @@ switcheroo.debug.server('Starting server...')
 
 server.listen(c.nodejs.port);
 
-app.configure(function(){
-	app.use(express.static(__dirname + c.nodejs.dir));
-});
+
+app.use(express.static(__dirname + c.nodejs.dir));
+
 
 
 io.sockets.on('connection', function (socket) {
