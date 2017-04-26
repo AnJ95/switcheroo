@@ -45,36 +45,6 @@
       }
     },
     {
-      "name" : "toggleLedRed",
-      "niceName" : "LED Red",
-      "color" : [255, 0, 0],
-      "icon" : "img/icon/toggleLed.png",
-      "action" : {
-        "type" : "toggle",
-        "pin" : "29"
-      }
-    },
-    {
-      "name" : "toggleLedGreen",
-      "niceName" : "LED Green",
-      "color" : [0, 255, 0],
-      "icon" : "img/icon/toggleLed.png",
-      "action" : {
-        "type" : "toggle",
-        "pin" : "28"
-      }
-    },
-    {
-      "name" : "toggleLedBlue",
-      "niceName" : "LED Blue",
-      "color" : [0, 0, 255],
-      "icon" : "img/icon/toggleLed.png",
-      "action" : {
-        "type" : "toggle",
-        "pin" : "27"
-      }
-    },
-    {
       "name" : "tvPower",
       "niceName" : "TV",
       "color" : [229, 175, 0],

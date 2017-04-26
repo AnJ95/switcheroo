@@ -3,7 +3,7 @@ window.app.templates = window.app.templates || {};
 window.app.templates.pinActions = window.app.templates.pinActions || {};
 
 window.app.templates.pinActions.pinActionRGB = function (model) {
-  return `<div class="full btn btn--rgb" style="background-color: ${model.color()}">
+  return `<div class="half btn btn--rgb" style="background-color: ${model.color()}">
   <div class="btn--rgb__third btn--rgb-red">
     <div class="btn--rgb__handle">
     </div>
