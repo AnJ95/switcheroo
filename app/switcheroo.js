@@ -2,9 +2,7 @@ var
   c = require('../config.json'),
   sha1 = require('sha1'),
   colors = require('colors'),
-  reqHandler = require('./requests/requestHandler.js'),
-  reqGetPinActions = require('./requests/getPinActions.js');
-  reqGetWidgets = require('./requests/getWidgets.js');
+  User = require('./user.js');
 
 
 colors.setTheme({
@@ -14,46 +12,33 @@ colors.setTheme({
   error: 'red'
 });
 
+var
+  users = [];
+
 /* ####################################################### */
 
-function Switcheroo() {}
+function Switcheroo(io) {
+  this.io = io;
+}
 
-/* ####################################################### */
-
-Switcheroo.prototype.initConnection = function(socket) {
-
-  var that = this;
-  socket.on('auth', function (data) {
-    var result = that.tryAuth(data.pwd);
-    socket.emit('auth', {success : result});
-  });
-
-  reqHandler.initConnection(reqGetPinActions, this, socket);
-  reqHandler.initConnection(reqGetWidgets, this, socket);
+Switcheroo.prototype.emit = function(name, data) {
+  this.io.sockets.emit(name, data, arguments[2] || undefined);
 }
 
 /* ####################################################### */
 
-Switcheroo.prototype.authLevel = 0;
+Switcheroo.prototype.initConnection = function(socket) {
+  var newUser = new User(this, socket);
+  users.push(newUser);
+}
 
-Switcheroo.prototype.getAuthLevel = function(){
-  return this.authLevel;
-};
-
-Switcheroo.prototype.doLogin = function(){
-  this.authLevel = 1;
-};
+/* ####################################################### */
 
 Switcheroo.prototype.tryAuth = function(authHash){
   var requiredHash = c.webInterface.authHash;
   var hash = sha1(authHash);
 
-  if (hash == requiredHash) {
-    this.doLogin();
-    return true;
-  }
-
-  return false;
+  return hash == requiredHash;
 };
 
 Switcheroo.prototype.debug = {
@@ -75,4 +60,4 @@ Switcheroo.prototype.debug = {
 
 
 
-module.exports = new Switcheroo();
+module.exports = Switcheroo;

@@ -37,7 +37,16 @@ Pin.PWM = 1;
 Pin.IN = 2;
 
 Pin.prototype.contentChanged = function() {
-  
+  this.app.emit("GetPins", this.toJSON());
+}
+
+Pin.prototype.toJSON = function() {
+  return {
+    id : this.pinId,
+    name : "pin",
+    mode : this.mode,
+    val : this.value
+  };
 }
 
 Pin.prototype.write = function(val) {

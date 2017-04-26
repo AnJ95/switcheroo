@@ -4,8 +4,8 @@ var
   server = require('http').createServer(app),
   io = require('socket.io').listen(server),
   c = require('../config.json'),
-  switcheroo = require('./switcheroo.js'),
-  Pins = new (require('./pins.js'))(switcheroo);
+  switcheroo = new (require('./switcheroo.js'))(io),
+  pins = new (require('./pins.js'))(switcheroo);
 
 
 switcheroo.debug.server('Starting server...')
