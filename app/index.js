@@ -14,12 +14,10 @@ server.listen(c.nodejs.port);
 app.use(express.static(__dirname + c.nodejs.dir));
 
 
-
 io.sockets.on('connection', function (socket) {
   switcheroo.debug.socket('new socket connection established');
 
 	switcheroo.initConnection(socket);
-
 });
 
 
