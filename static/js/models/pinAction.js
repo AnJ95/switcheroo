@@ -24,34 +24,31 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
   },
 
   isOn : function () {
-    return (this.pinModel != undefined && this.pinModel.isPopulated) ? this.pinModel.isOn() : false;
+    return (this.pinModel !== undefined && this.pinModel.isPopulated) ? this.pinModel.isOn() : false;
   },
   pwm : function () {
-    return (this.pinModel != undefined && this.pinModel.isPopulated) ? this.pinModel.pwm() : 0;
+    return (this.pinModel !== undefined && this.pinModel.isPopulated) ? this.pinModel.pwm() : 0;
   },
 
   childModelInitialized : false,
+
+  // This pinAction will save several pinActions in this list in some cases
+  subPinActions : {},
 
   update : function (json) {
     window.app.mvr.Model.update.call(this, json);
 
     var that = this;
-
-    if (this.json.action.pins != undefined) {
-
-      // This pinAction will save several pinActions in this list.
-      this.subPinActions = {};
-
-      $.each(this.json.action.pins, function (pinName, wPin) {
-
-        var json = jQuery.extend(true, {}, that.json);
-
-        json.action.pin = wPin;
-        delete json.action.pins;
-
-        that.subPinActions[pinName] = window.app.models.PinAction
-          .new()
-          .update(json);
+    if (this.json.action.pins !== undefined) {
+      $.each(this.json.action.pins, function (pinName, pinId) {
+        that.subPinActions[pinName] = window.app.models.PinAction.new();
+        that.subPinActions[pinName].update({
+            "name" : pinName,
+            "action" : {
+              "type" : "rgbled",
+              "pin" : pinId
+            }
+          });
       });
 
       return this;
@@ -62,10 +59,8 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
 
       var pins = window.app.mvr.ModelManager.require("pins");
 
-
       function attachChildModel () {
         that.pinModel = pins.getPinById(that.pinId());
-        //console.log("ATTACH");
         that.pinModel.attachObserver({
           // This happens whenever there are changes to this pin in the future
           notify : function() {

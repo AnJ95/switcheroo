@@ -9,10 +9,10 @@ window.app.models.Pin = window.app.mvr.Model.extend({
     return this.json.val == "1";
   },
   pwm : function() {
-    if (arguments != undefined && arguments.length >= 1) {
-      this.json.pwm = arguments[0];
+    if (arguments !== undefined && arguments.length >= 1) {
+      this.json.val = arguments[0];
       return this;
     }
-    return this.json.pwm || 0;
+    return this.json.val || 0;
   }
 });

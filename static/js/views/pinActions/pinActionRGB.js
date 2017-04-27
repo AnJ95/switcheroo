@@ -11,8 +11,8 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
     var that = this;
     $.each(this.model.subPinActions, function(pinName, pin) {
 
-      $third = that.$el.find(".btn--rgb-" + pinName);
-      $handle = $third.find(".btn--rgb__handle");
+      var $third = that.$el.find(".btn--rgb-" + pinName);
+      var $handle = $third.find(".btn--rgb__handle");
 
       $handle.draggable({
         addClasses: false,
@@ -27,38 +27,36 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
           // change Model TODO let server send that
           that.model.subPinActions[pinName].pinModel.pwm(pwm);
 
-          that.model.notifyObservers();
+          // console.log(that.model.subPinActions.red.pinModel.pwm(), that.model.subPinActions.green.pinModel.pwm(), that.model.subPinActions.blue.pinModel.pwm());
 
           that.$el.find(".btn--rgb__invisible-trigger").trigger("click");
         }
       });
-
     });
   },
 
   renderUpdate : function() {
     var that = this;
 
-    $.each(this.model.subPinActions, function(pinName, pinId) {
-      $third = that.$el.find(".btn--rgb-" + pinName);
-      $handle = $third.find(".btn--rgb__handle");
+    $.each(this.model.subPinActions, function(pinName, subPin) {
+      var $third = that.$el.find(".btn--rgb-" + pinName);
+      var $handle = $third.find(".btn--rgb__handle");
 
       var col;
       switch (pinName) {
         case "red":
-          col = "rgba(255, 0, 0, " + pinId.pwm() + ")";
+          col = "rgba(255, 0, 0, " + subPin.pwm() + ")";
           break;
         case "green":
-          col = "rgba(0, 255, 0, " + pinId.pwm() + ")";
+          col = "rgba(0, 255, 0, " + subPin.pwm() + ")";
           break;
         case "blue":
-          col = "rgba(0, 0, 255, " + pinId.pwm() + ")";
+          col = "rgba(0, 0, 255, " + subPin.pwm() + ")";
           break;
       }
 
-      $third.css("background-color", col)
-      $handle.css("top", (($third.innerHeight() - $handle.outerHeight())  * (1 - pinId.pwm())) + "px")
-
+      $third.css("background-color", col);
+      $handle.css("top", (($third.innerHeight() - $handle.outerHeight())  * (1 - subPin.pwm())) + "px");
     });
   },
 
@@ -76,7 +74,7 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
           green : this.model.subPinActions.green.pwm(),
           blue : this.model.subPinActions.blue.pwm()
         }
-      }
+      };
     },
     modelNameToUpdate : function() {
       return ""; // no update, as we update model client-side TODO

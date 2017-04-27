@@ -7,13 +7,12 @@ window.app.collections.Pins = window.app.mvr.Collection.extend({
   fetchRequestData : function() {return [];},
 
   getPinById : function(id) {
-    var resultingPin = undefined;
-    $.each(this.models, function(id, pin) {
+    var resultingPin;
+    $.each(this.models, function(i, pin) {
         if (pin.getId() == id) {
           resultingPin = pin;
         }
     });
-
     return resultingPin;
   },
 

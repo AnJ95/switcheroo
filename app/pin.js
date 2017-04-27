@@ -78,7 +78,7 @@ Pin.prototype.pulse = function(length) {
 Pin.prototype.writePwm = function(pwmVal) {
   if (this.mode == Pin.PWM) {
     var calcVal = Math.round(parseFloat(pwmVal) * 255);
-    this.value = calcVal;
+    this.value = pwmVal;
     this.innerPin.pwmWrite(calcVal);
     this.contentChanged();
   } else {
