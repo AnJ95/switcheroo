@@ -5,7 +5,7 @@ function request(requestName, requestData, successHandler, errorHandler, general
   errorHandler = errorHandler || function() {};
   generalHandler = generalHandler || function() {};
 
-  console.log("Starting request \"" + requestName + "\"");
+  console.log("Starting request \"" + requestName + "\"", requestData);
   // attach handler if there is none already
   if (window.app.socket._callbacks[requestName] == undefined) {
     window.app.socket.on(requestName, function (data) {

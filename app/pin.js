@@ -37,7 +37,13 @@ Pin.PWM = 1;
 Pin.IN = 2;
 
 Pin.prototype.contentChanged = function() {
-  this.app.emit("GetPins", this.toJSON());
+  var json = this.toJSON();
+  var result = {
+    success : true,
+    result : {}
+  };
+  result.result[json.id] = json;
+  this.app.emit("GetPins", result);
 }
 
 Pin.prototype.toJSON = function() {
@@ -53,6 +59,7 @@ Pin.prototype.write = function(val) {
   if (this.mode == Pin.OUT) {
     this.value = val;
     this.innerPin.digitalWrite(val);
+    this.contentChanged();
   } else {
     this.app.debug.warn("Tried writing on Pin " + this.pinId + " which is not set to OUT");
   }
@@ -63,15 +70,17 @@ Pin.prototype.pulse = function(length) {
     var that = this;
     setTimeout(function() {
       that.write(0);
-    });
+    }, length);
   } else {
     this.app.debug.warn("Tried pulsing Pin " + this.pinId + " which is not set to OUT");
   }
 }
 Pin.prototype.writePwm = function(pwmVal) {
   if (this.mode == Pin.PWM) {
-    this.value = pwmVal;
-    this.innerPin.pwmWrite(pwmVal);
+    var calcVal = Math.round(parseFloat(pwmVal) * 255);
+    this.value = calcVal;
+    this.innerPin.pwmWrite(calcVal);
+    this.contentChanged();
   } else {
     this.app.debug.warn("Tried doing pwm on Pin " + this.pinId + " which is not set to PWM");
   }

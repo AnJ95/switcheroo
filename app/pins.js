@@ -7,7 +7,7 @@ var innerPins = [];
 var Pins = function(app) {
   this.app = app;
   for (var i = 0; i < 32; i++) {
-    innerPins.push(new Pin(this.app, i, Pin.OUT));
+    innerPins.push(new Pin(this.app, i, c.pi.pinModes[i]));
   }
 }
 

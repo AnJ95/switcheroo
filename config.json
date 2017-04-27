@@ -2,14 +2,26 @@
   "pi" : {
     "ip" : "192.168.1.21",
     "path" : "Switcheroo",
-    "version" : "3B"
+    "version" : "3B",
+    "pinModes" : [
+      0,  0,  0,  0,  0,
+      0,  0,  0,  0,  0,
+
+      0,  0,  0,  0,  0,
+      0,  1,  0,  0,  0,
+
+      1,  1,  0,  0,  0,
+      0,  0,  0,  0,  0,
+
+      0
+    ]
   },
   "nodejs" : {
     "dir" : "/../static",
     "port" : "8080",
     "debug_server_prefix" : "### ",
     "debug_socket_prefix" : "+++ ",
-    "useActualPigpio" : false
+    "useActualPigpio" : true
   },
   "webInterface" : {
     "authHash" : "9e676808fe39477469216a1e5e33c9f76f2ae465"
@@ -29,9 +41,9 @@
       "action" : {
         "type" : "rgbled",
         "pins" : {
-          "red" : "1",
-          "green" : "26",
-          "blue" : "23"
+          "red" : "16",
+          "green" : "20",
+          "blue" : "21"
         }
       }
     },
@@ -52,7 +64,7 @@
       "icon" : "img/icon/tv.png",
       "action" : {
         "type" : "toggle",
-        "pin" : "24"
+        "pin" : "26"
       }
     },
     {
@@ -62,7 +74,7 @@
       "icon" : "img/icon/coffee.png",
       "action" : {
         "type" : "toggle",
-        "pin" : "25"
+        "pin" : "26"
       }
     }
   ]
