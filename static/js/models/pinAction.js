@@ -59,23 +59,24 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
 
       var pins = window.app.mvr.ModelManager.require("pins");
 
-      function attachChildModel () {
+      attachChildModel = function () {
         that.pinModel = pins.getPinById(that.pinId());
         that.pinModel.attachObserver({
           // This happens whenever there are changes to this pin in the future
           notify : function() {
             that.notifyObservers();
+            console.log("CHANGE " + that.pinId());
           }
-        })
-      }
+        });
+      };
 
       if (pins.isPopulated) {
         attachChildModel();
         this.notifyObservers();
       } else {
-        pins.attachObserver({
+        pins.attachObserverOnce({
           notify : function() {
-            attachChildModel.call(that)
+            attachChildModel.call(that);
           }
         });
       }
