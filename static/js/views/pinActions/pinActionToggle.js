@@ -8,7 +8,6 @@ window.app.views.pinActions.PinActionToggle = window.app.mvr.View.extend({
   renderUpdate : function() {
     var that = this;
     that.$el.toggleClass("btn--active", that.model.isOn());
-    //console.log("UPDATE " , that.model);
   },
 
   clickRequests : [{

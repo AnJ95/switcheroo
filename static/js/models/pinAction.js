@@ -39,9 +39,14 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
     window.app.mvr.Model.update.call(this, json);
 
     var that = this;
+    // if this is a rgbled pinAction and this needs 3 sub pinActions
     if (this.json.action.pins !== undefined) {
       $.each(this.json.action.pins, function (pinName, pinId) {
-        that.subPinActions[pinName] = window.app.models.PinAction.new();
+
+        if (that.subPinActions[pinName] === undefined) {
+          that.subPinActions[pinName] = window.app.models.PinAction.new();
+        }
+
         that.subPinActions[pinName].update({
             "name" : pinName,
             "action" : {
@@ -49,8 +54,8 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
               "pin" : pinId
             }
           });
-      });
 
+      });
       return this;
     }
 
@@ -59,13 +64,12 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
 
       var pins = window.app.mvr.ModelManager.require("pins");
 
-      attachChildModel = function () {
+      function attachChildModel() {
         that.pinModel = pins.getPinById(that.pinId());
         that.pinModel.attachObserver({
           // This happens whenever there are changes to this pin in the future
           notify : function() {
             that.notifyObservers();
-            console.log("CHANGE " + that.pinId());
           }
         });
       };
