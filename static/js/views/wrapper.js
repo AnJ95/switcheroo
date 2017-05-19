@@ -18,6 +18,11 @@ window.app.views.Wrapper = window.app.mvr.View.extend({
         selector : ".hook--pinActions",
         viewClass : window.app.views.pinActions.PinActions,
         renderStyle : "replace"
+      },
+      {
+        selector : ".window",
+        viewClass : window.app.views.Window
       }
+
   ]
 });

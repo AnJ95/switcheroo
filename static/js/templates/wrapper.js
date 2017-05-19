@@ -8,7 +8,7 @@ window.app.templates.wrapper = function (model) {
     <header></header>
 
     <!-- Window -->
-    <div class="window"><div class="window__inner"></div></div>
+    <div class="window"></div>
 
     <!-- Widgets Section -->
     <div class="hook--widgets"></div>

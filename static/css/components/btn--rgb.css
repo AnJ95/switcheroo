@@ -1,23 +1,38 @@
-.btn--rgb__third {
+.btn--rgb__half {
   float: left;
-  width: 33.33%;
+  width: 50%;
   height: 100%;
   position: relative;
-  top: 0%;
-  border-radius: 7px;
 }
 
-.btn--rgb__handle {
+.btn.btn--rgb__indicator {
   position: absolute;
-  height: 14px;
-  width: 100%;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  height: auto;
+  width: auto;
   border-radius: 7px;
-  border: 2px solid #FFF;
+  margin: 0;
+  background-color: red;
 }
 
-.btn--rgb-red .btn--rgb__handle {background-color: #F00}
-.btn--rgb-green .btn--rgb__handle {background-color: #0F0}
-.btn--rgb-blue .btn--rgb__handle {background-color: #00F}
+.btn--rgb__indicator:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 7px;
+
+  box-shadow: inset 0px 0px 5px 5px rgba(255,255,255,0.4);
+  border: 2px solid rgba(255, 255, 255, 0.6)
+}
+
+
 
 .btn--rgb__invisible-trigger {
   height: 0;

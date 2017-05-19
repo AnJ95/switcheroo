@@ -53,6 +53,6 @@ function initLogin() {
   }
 
   // initial login to check whether cookie authenticates already
-  login("");
+  login("down a down a right down right down");
 
 }

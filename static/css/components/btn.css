@@ -13,12 +13,13 @@
 
 .btn {
   border: 0 none;
+  margin-top: 0;
   margin-bottom: 4%;
   padding: 0;
 	height: 20%;
   width: 100%;
 	border-radius: 7px;
-  cursor: pointer;
+  
   box-shadow: 0 3px 0 0 #CCC;
   position: relative;
 }

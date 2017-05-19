@@ -9,56 +9,87 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
     window.app.mvr.View.renderInitial.call(this);
 
     var that = this;
-    $.each(this.model.subPinActions, function(pinName, pin) {
 
-      var $third = that.$el.find(".btn--rgb-" + pinName);
-      var $handle = $third.find(".btn--rgb__handle");
+    if (window.DeviceOrientationEvent) {
+      console.log("Added DeviceOrientationEvent", this.$el);
 
-      $handle.draggable({
-        addClasses: false,
-        containment : $third,
-        axis: "y",
-        drag: function(e, ui) {
-          var offset = $(this).offset();
-          var max = parseInt($third.innerHeight()) - $handle.outerHeight();
-          var curr = $(this).position().top - $(this).parent().position().top;
-          var pwm = (1 - curr/max);
-
-          // change Model TODO let server send that
-          that.model.subPinActions[pinName].pinModel.pwm(pwm);
-
-          // console.log(that.model.subPinActions.red.pinModel.pwm(), that.model.subPinActions.green.pinModel.pwm(), that.model.subPinActions.blue.pinModel.pwm());
-
-          that.$el.find(".btn--rgb__invisible-trigger").trigger("click");
-        }
+      this.$el.find(".btn--rgb-static .btn--rgb__indicator").on("mousedown touchstart", function(e) {
+        that.motionStates[that.currentMotionStateName].down.call(that, "static");
+        e.preventDefault();
       });
-    });
+      this.$el.find(".btn--rgb-dynamic .btn--rgb__indicator").on("mousedown touchstart", function(e) {
+        that.motionStates[that.currentMotionStateName].down.call(that, "dynamic");
+        e.preventDefault();
+      });
+      this.$el.find(".btn--rgb__indicator").on("mouseup touchend", function(e) {
+        that.motionStates[that.currentMotionStateName].up.call(that);
+        e.preventDefault();
+      });
+      window.addEventListener("deviceorientation", function motion(event){
+        that.motionStates[that.currentMotionStateName].motionEvent.call(that, event);
+      }, false);
+
+    } else {
+      console.log("DeviceOrientationEvent is not supported");
+    }
   },
 
   renderUpdate : function() {
+    function getCurr(colorName) {
+      return Math.round(this.model.subPinActions[colorName].pwm() * 255);
+    }
     var that = this;
 
-    $.each(this.model.subPinActions, function(pinName, subPin) {
-      var $third = that.$el.find(".btn--rgb-" + pinName);
-      var $handle = $third.find(".btn--rgb__handle");
-
-      var col;
-      switch (pinName) {
-        case "red":
-          col = "rgba(255, 0, 0, " + subPin.pwm() + ")";
-          break;
-        case "green":
-          col = "rgba(0, 255, 0, " + subPin.pwm() + ")";
-          break;
-        case "blue":
-          col = "rgba(0, 0, 255, " + subPin.pwm() + ")";
-          break;
-      }
-
-      $third.css("background-color", col);
-      $handle.css("top", (($third.innerHeight() - $handle.outerHeight())  * (1 - subPin.pwm())) + "px");
-    });
+    var col = "rgba("+getCurr.call(this,"red")+","+getCurr.call(this,"green")+","+getCurr.call(this,"blue")+",1)";
+    this.$el.find(".btn--rgb-static .btn--rgb__indicator").css("background-color", col);
   },
+
+  currentMotionStateName : "idle",
+
+  motionStates : {
+    idle : {
+      down : function (nextName) {
+        this.currentMotionStateName = nextName;
+        // reset every pwm value to 0
+        $.each(that.model.subPinActions, function(color, subPinAction) {
+           subPinAction.pinModel.pwm(0);
+        });
+      },
+      up : function () {},
+      motionEvent : function (e) {}
+    },
+    static : {
+      down : function () {},
+      up : function () {
+        this.currentMotionStateName = "idle";
+      },
+      motionEvent : function (e) {
+
+        //console.log(e);
+        var vals = {
+          red : (e.alpha / 360),
+          green : ((e.beta + 180) / 360),
+          blue : ((e.gamma + 90) / 180)
+        };
+
+        var that = this;
+
+        $.each(this.model.subPinActions, function(pinName, pin) {
+          var pinModel = that.model.subPinActions[pinName].pinModel;
+          //var oldPwm = pinModel.pwm();
+
+          //var delta = vals[pinName] * e.interval * 0.01;
+
+          pinModel.pwm(vals[pinName]);
+        });
+
+        that.model.notifyObservers();
+        that.$el.find(".btn--rgb__invisible-trigger").trigger("click");
+
+      }
+    }
+  },
+
 
   clickRequests : [{
     selector : ".btn--rgb__invisible-trigger",

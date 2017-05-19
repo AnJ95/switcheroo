@@ -7,5 +7,13 @@ window.app.views.header.headerBtns.HeaderBtnPins = window.app.views.header.heade
   model : {
     name : "pins",
     icon : "img/icon/pins.png"
-  }
+  },
+
+  clickRequests : [{
+    selector : "",
+    handler : function() {
+      console.log(this);
+      window.app.window.open();
+    }
+  }]
 });

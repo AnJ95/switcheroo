@@ -86,7 +86,7 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
 
     instance.$el = $el;
 
-    if (this.requireModel != undefined) {
+    if (this.requireModel !== undefined) {
       // Get Model/Collection from ModelManager
       // Data will be asynchronously populated
       // Start listening to Models/Collections changes
@@ -140,37 +140,40 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
   attachClickRequests : function () {
     var that = this;
     $.each(this.clickRequests, function(i, clickRequest) {
-      var $trigger = (clickRequest.selector == "") ? that.$el : that.$el.find(clickRequest.selector);
+      var $trigger = (clickRequest.selector === "") ? that.$el : that.$el.find(clickRequest.selector);
 
       $trigger.on("click", function() {
-        var reqName = clickRequest.requestName.call(that);
-        var reqData = clickRequest.requestData.call(that);
-        var modelNameToUpdate = clickRequest.modelNameToUpdate.call(that);
+
         var handler = clickRequest.handler;
-
-        if (handler != undefined) {
-          handler();
+        if (handler !== undefined) {
+          handler.call(that);
         }
 
-        if (reqName != "") {
-          request(
-            reqName,
-            reqData,
-            function (result) {
-              if (modelNameToUpdate != "") {
-                window.app.mvr.ModelManager.require(modelNameToUpdate).update(result);
+        if (clickRequest.requestName !== undefined) {
+          var reqName = clickRequest.requestName.call(that);
+          if (reqName !== "") {
+            var reqData = clickRequest.requestData.call(that);
+            var modelNameToUpdate = clickRequest.modelNameToUpdate.call(that);
+            request(
+              reqName,
+              reqData,
+              function (result) {
+                if (modelNameToUpdate !== "") {
+                  window.app.mvr.ModelManager.require(modelNameToUpdate).update(result);
+                }
               }
-            }
-          );
+            );
+          }
         }
-      });
-    });
+
+      }); // /.on("click")
+    }); // /.each(clickRequests)
   },
 
   detachClickRequests : function () {
     var that = this;
     $.each(this.clickRequests, function(i, clickRequest) {
-      var $trigger = (clickRequest.selector == "") ? that.$el : that.$el.find(selector);
+      var $trigger = (clickRequest.selector === "") ? that.$el : that.$el.find(selector);
       $trigger.off("click");
     });
   },
@@ -186,8 +189,8 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
         .new(that.$el.find(def.selector))
         .setRenderStyle(def.renderStyle || "insert");
 
-      if (def.model != undefined) {
-        view.setModel(def.model)
+      if (def.model !== undefined) {
+        view.setModel(def.model);
         def.model.attachObserver(view);
       }
 
@@ -220,7 +223,7 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
     this.$el.html("");
 
     var that = this;
-    if (this.model != undefined && this.model.detachObserver != undefined) {
+    if (this.model !== undefined && this.model.detachObserver !== undefined) {
         this.model.detachObserver(that);
     }
 
