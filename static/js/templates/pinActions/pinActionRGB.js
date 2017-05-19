@@ -12,6 +12,7 @@ window.app.templates.pinActions.pinActionRGB = function (model) {
     <div class="btn btn--rgb__indicator">
     </div>
   </div>
-  <div class="btn--rgb__invisible-trigger"></div>
+  <div class="btn--rgb__invisible-trigger trigger-change"></div>
+  <div class="btn--rgb__invisible-trigger trigger-done"></div>
   </div>`;
 }

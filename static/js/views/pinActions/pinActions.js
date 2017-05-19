@@ -13,13 +13,10 @@ window.app.views.pinActions.PinActions = window.app.mvr.CompositeView.extend({
     switch(model.pinActionType()) {
       case "toggle":
         return window.app.views.pinActions.PinActionToggle;
-        break;
       case "pulse":
         return window.app.views.pinActions.PinActionPulse;
-        break;
       case "rgbled":
         return window.app.views.pinActions.PinActionRGB;
-        break;
     }
     return undefined;
   }

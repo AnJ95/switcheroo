@@ -10,6 +10,6 @@ window.app.views.widgets.Widgets = window.app.mvr.CompositeView.extend({
   childrenParentSelector : ".flow",
 
   getChildrenViewClassByModel : function(model) {
-    return window.app.views.widgets.Widget
+    return window.app.views.widgets.Widget;
   }
 });

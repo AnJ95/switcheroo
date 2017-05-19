@@ -20,10 +20,10 @@ window.app.mvr.ModelManager = window.app.mvr.Extendable.extend({
   In case the model is new, fetch() is called to populate it with data.
   */
   require : function(name) {
-    if (this.nameModelStore[name] == undefined) {
+    if (this.nameModelStore[name] === undefined) {
       this.error("ModelManager: Tried requiring unknown model with name " + name);
     }
-    if (this.models[name] == undefined) {
+    if (this.models[name] === undefined) {
       this.models[name] = this.nameModelStore[name]()
         .new()
         .fetch();

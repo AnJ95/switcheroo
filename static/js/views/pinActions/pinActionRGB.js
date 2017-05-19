@@ -35,6 +35,7 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
   },
 
   renderUpdate : function() {
+    console.log("CHANGE");
     function getCurr(colorName) {
       return Math.round(this.model.subPinActions[colorName].pwm() * 255);
     }
@@ -51,7 +52,7 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
       down : function (nextName) {
         this.currentMotionStateName = nextName;
         // reset every pwm value to 0
-        $.each(that.model.subPinActions, function(color, subPinAction) {
+        $.each(this.model.subPinActions, function(color, subPinAction) {
            subPinAction.pinModel.pwm(0);
         });
       },
@@ -61,6 +62,7 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
     static : {
       down : function () {},
       up : function () {
+        this.$el.find(".trigger-done").trigger("click");
         this.currentMotionStateName = "idle";
       },
       motionEvent : function (e) {
@@ -76,15 +78,11 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
 
         $.each(this.model.subPinActions, function(pinName, pin) {
           var pinModel = that.model.subPinActions[pinName].pinModel;
-          //var oldPwm = pinModel.pwm();
-
-          //var delta = vals[pinName] * e.interval * 0.01;
-
           pinModel.pwm(vals[pinName]);
         });
 
         that.model.notifyObservers();
-        that.$el.find(".btn--rgb__invisible-trigger").trigger("click");
+        that.$el.find(".trigger-change").trigger("click");
 
       }
     }
@@ -92,7 +90,7 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
 
 
   clickRequests : [{
-    selector : ".btn--rgb__invisible-trigger",
+    selector : ".trigger-change",
     requestName : function() {
       return "SendPinAction";
     },
@@ -109,7 +107,23 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
     },
     modelNameToUpdate : function() {
       return ""; // no update, as we update model client-side TODO
+    }
+  },
+  {
+    selector : ".trigger-done",
+    requestName : function() {
+      return "SendPinAction";
     },
+    requestData : function() {
+      return {
+        type : this.model.pinActionType(),
+        pins : this.model.json.action.pins,
+        done : true
+      };
+    },
+    modelNameToUpdate : function() {
+      return ""; // no update, as we update model client-side TODO
+    }
   }]
 
 });

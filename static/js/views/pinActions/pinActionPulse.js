@@ -19,11 +19,11 @@ window.app.views.pinActions.PinActionPulse = window.app.mvr.View.extend({
       return {
         type : this.model.pinActionType(),
         pin : this.model.getPinBcm()
-      }
+      };
     },
     modelNameToUpdate : function() {
-      return "pins";
-    },
+      return "";
+    }
   }]
 
 });

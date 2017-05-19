@@ -183,6 +183,11 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
   */
   renderInitialChildren : function () {
     var that = this;
+
+    $.each(this.children, function(i, child) {
+      child.destroy();
+    });
+
     $.each(this.childViewDefinitions, function(i, def) {
 
       var view = def.viewClass
@@ -212,19 +217,15 @@ window.app.mvr.View = window.app.mvr.Extendable.extend({
   },
 
   destroy : function () {
-    console.log("DESTROYING");
-
     $.each(this.children, function(i, child) {
       child.destroy();
     });
 
     this.detachClickRequests();
 
-    this.$el.html("");
-
     var that = this;
     if (this.model !== undefined && this.model.detachObserver !== undefined) {
-        this.model.detachObserver(that);
+        this.model.detachObserver(this);
     }
 
   }

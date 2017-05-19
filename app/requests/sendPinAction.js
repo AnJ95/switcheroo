@@ -29,9 +29,15 @@ SendPinAction.prototype.requestHandler = function (data) {
       this.app.pins.getByBCM(parseInt(data.pin)).dynPin.pulse(100);
     break;
     case "rgbled":
-      this.app.pins.getByBCM(parseInt(data.pins.red)).dynPin.writePwm(data.values.red);
-      this.app.pins.getByBCM(parseInt(data.pins.green)).dynPin.writePwm(data.values.green);
-      this.app.pins.getByBCM(parseInt(data.pins.blue)).dynPin.writePwm(data.values.blue);
+      if (data.done !== undefined && data.done) {
+        this.app.pins.getByBCM(parseInt(data.pins.red)).dynPin.contentChanged();
+        this.app.pins.getByBCM(parseInt(data.pins.green)).dynPin.contentChanged();
+        this.app.pins.getByBCM(parseInt(data.pins.blue)).dynPin.contentChanged();
+      } else {
+        this.app.pins.getByBCM(parseInt(data.pins.red)).dynPin.writePwm(data.values.red);
+        this.app.pins.getByBCM(parseInt(data.pins.green)).dynPin.writePwm(data.values.green);
+        this.app.pins.getByBCM(parseInt(data.pins.blue)).dynPin.writePwm(data.values.blue);
+      }
     break;
 
     default:

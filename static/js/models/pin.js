@@ -30,7 +30,6 @@ window.app.models.Pin = window.app.mvr.Model.extend({
   },
 
   classAddition : function() {
-    console.log(this.json);
     return this.isOn() ? " btn--active" : "";
   }
 });

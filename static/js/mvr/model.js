@@ -21,7 +21,9 @@ window.app.mvr.Model = window.app.mvr.Observable.extend({
   update : function (json) {
     this.json = json;
     this.isPopulated = true;
-    this.notifyObservers();
+    if (arguments[1] !== undefined && !arguments[1]) {
+        this.notifyObservers();
+    }
     return this;
   },
 

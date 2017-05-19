@@ -40,7 +40,7 @@ Pin.prototype.contentChanged = function() {
   if (this.app.pins === undefined) {
     return;
   }
-  
+
   var pin = this.app.pins.populate(this.app.pins.getByBCM(this.pinId));
 
   var result = {
@@ -88,7 +88,7 @@ Pin.prototype.writePwm = function(pwmVal) {
     var calcVal = Math.round(parseFloat(pwmVal) * 255);
     this.value = pwmVal;
     this.innerPin.pwmWrite(calcVal);
-    this.contentChanged();
+    //this.contentChanged();
   } else {
     this.app.debug.warn("Tried doing pwm on Pin " + this.pinId + " which is not set to PWM");
   }

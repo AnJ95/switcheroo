@@ -20,17 +20,21 @@ window.app.mvr.Collection = window.app.mvr.Model.extend({
   update : function (json) {
     var that = this;
     $.each(json, function (modelName, modelJson) {
-      if (that.models[modelName] == undefined) {
+      if (that.models[modelName] === undefined) {
         that.models[modelName] = that.getModelClassByKey(modelName)
           .new()
-          .update(modelJson);
+          .update(modelJson, false);
       } else {
-        that.models[modelName].update(modelJson);
+        that.models[modelName].update(modelJson, false);
       }
     });
 
+    this.json = json;
+    this.isPopulated = true;
+    this.notifyObservers();
+
     // Do standard Model-update
-    window.app.mvr.Model.update.call(this, json);
+    // window.app.mvr.Model.update.call(this, json);
 
     return this;
   },

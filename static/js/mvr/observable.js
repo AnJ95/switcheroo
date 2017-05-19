@@ -54,6 +54,18 @@ window.app.mvr.Observable = window.app.mvr.Extendable.extend({
   detachObservers : function () {
     this.observers = [];
     return this;
+  },
+
+  detachObserver : function (observer) {
+    var newObservers = [];
+    var that = this;
+    $.each(this.observers, function(i, obs) {
+      if (obs != observer) {
+        Array.prototype.push.call(newObservers, obs);
+      }
+    });
+    this.observers = newObservers;
+    return this;
   }
 
 });

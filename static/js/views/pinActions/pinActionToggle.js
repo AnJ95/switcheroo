@@ -20,11 +20,11 @@ window.app.views.pinActions.PinActionToggle = window.app.mvr.View.extend({
         type : this.model.pinActionType(),
         pin : this.model.getPinBcm(),
         value : !this.model.pinModel.isOn()
-      }
+      };
     },
     modelNameToUpdate : function() {
-      return "pins";
-    },
+      return "";
+    }
   }]
 
 });
