@@ -10,12 +10,10 @@ window.app.collections.Widgets = window.app.mvr.Collection.extend({
     switch (key) {
       case "pi":
         return window.app.models.widgets.WidgetInnerPi;
-        break;
       case "weather":
         return window.app.models.widgets.WidgetInnerWeather;
-        break;
       default:
-      this.error("Tried creating unknown widget model with key " + key);
+        this.error("Tried creating unknown widget model with key " + key);
         break;
     }
   }

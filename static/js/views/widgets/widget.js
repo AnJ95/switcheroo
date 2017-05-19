@@ -16,9 +16,7 @@ window.app.views.widgets.Widget = window.app.mvr.View.extend({
     }];
 
     var that = this;
-    window.setTimeout(function() {
-        window.app.mvr.View.renderInitial.call(that);
-    }, 1);
+    window.app.mvr.View.renderInitial.call(that);
 
   },
 
