@@ -23,16 +23,29 @@ window.app.views.Window = window.app.mvr.View.extend({
     return this;
   },
 
+  isOpen : false,
+
+  toggle : function () {
+    if (this.isOpen) {
+      this.close();
+    } else {
+      this.open();
+    }
+  },
+
   open : function() {
-    console.log("THIS",this);
     // visually open window
     this.$el.addClass("active");
+
+    this.isOpen = true;
 
     return this;
   },
 
   close : function() {
     this.$el.removeClass("active");
+
+    this.isOpen = false;
 
     return this;
   }
