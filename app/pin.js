@@ -44,16 +44,15 @@ Pin.prototype.contentChanged = function() {
   };
   result.result[json.id] = json;
   this.app.emit("GetPins", result);
-}
+};
 
 Pin.prototype.toJSON = function() {
   return {
-    id : this.pinId,
-    name : "pin",
+    bcm : this.pinId,
     mode : this.mode,
     val : this.value
   };
-}
+};
 
 Pin.prototype.write = function(val) {
   if (this.mode == Pin.OUT) {
@@ -63,7 +62,8 @@ Pin.prototype.write = function(val) {
   } else {
     this.app.debug.warn("Tried writing on Pin " + this.pinId + " which is not set to OUT");
   }
-}
+};
+
 Pin.prototype.pulse = function(length) {
   if (this.mode == Pin.OUT) {
     this.write(1);
@@ -74,7 +74,8 @@ Pin.prototype.pulse = function(length) {
   } else {
     this.app.debug.warn("Tried pulsing Pin " + this.pinId + " which is not set to OUT");
   }
-}
+};
+
 Pin.prototype.writePwm = function(pwmVal) {
   if (this.mode == Pin.PWM) {
     var calcVal = Math.round(parseFloat(pwmVal) * 255);
@@ -84,6 +85,6 @@ Pin.prototype.writePwm = function(pwmVal) {
   } else {
     this.app.debug.warn("Tried doing pwm on Pin " + this.pinId + " which is not set to PWM");
   }
-}
+};
 
 module.exports = Pin;

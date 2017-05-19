@@ -4,7 +4,7 @@ var
 
 function GetPins (app) {
   this.app = app;
-};
+}
 
 // will be set by RequestHandler
 GetPins.prototype.app = null;
