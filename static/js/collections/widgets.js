@@ -14,7 +14,7 @@ window.app.collections.Widgets = window.app.mvr.Collection.extend({
         return window.app.models.widgets.WidgetInnerWeather;
       default:
         this.error("Tried creating unknown widget model with key " + key);
-        break;
+      break;
     }
   }
 });
