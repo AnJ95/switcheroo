@@ -4,7 +4,7 @@ var
 
 function SendPinAction (app) {
   this.app = app;
-};
+}
 
 // will be set by RequestHandler
 SendPinAction.prototype.app = null;
@@ -17,22 +17,21 @@ SendPinAction.prototype.getRequestName = function() {
 SendPinAction.prototype.init = function () {};
 
 SendPinAction.prototype.requestHandler = function (data) {
-  if (data.type == undefined) {
+  if (data.type === undefined) {
     this.app.debug.error("Tried executing PinAction with no type!");
     return;
   }
-
   switch (data.type) {
     case "toggle":
-      this.app.pins.get(parseInt(data.pin)).write((data.value == true ? 1 : 0));
+      this.app.pins.getByBCM(parseInt(data.pin)).dynPin.write((data.value == true ? 1 : 0));
     break;
     case "pulse":
-      this.app.pins.get(parseInt(data.pin)).pulse(100);
+      this.app.pins.getByBCM(parseInt(data.pin)).dynPin.pulse(100);
     break;
     case "rgbled":
-      this.app.pins.get(parseInt(data.pins.red)).writePwm(data.values.red);
-      this.app.pins.get(parseInt(data.pins.green)).writePwm(data.values.green);
-      this.app.pins.get(parseInt(data.pins.blue)).writePwm(data.values.blue);
+      this.app.pins.getByBCM(parseInt(data.pins.red)).dynPin.writePwm(data.values.red);
+      this.app.pins.getByBCM(parseInt(data.pins.green)).dynPin.writePwm(data.values.green);
+      this.app.pins.getByBCM(parseInt(data.pins.blue)).dynPin.writePwm(data.values.blue);
     break;
 
     default:

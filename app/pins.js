@@ -175,27 +175,34 @@ Pins.prototype.getByBCM = function(bcm) {
   return null;
 };
 
+Pins.prototype.populate = function(curr) {
+  var result = {};
+
+  for (var physId in innerPins) {
+      if (innerPins[physId].bcm == curr.bcm) {
+        result.id = physId;
+      }
+  }
+
+  for (var dataKey in curr) {
+    // add static values
+    if (dataKey !== "dynPin") {
+      result[dataKey] = curr[dataKey];
+    } else { // if this is Pin-Object: add its values
+      var dynJson = curr.dynPin.toJSON();
+      for (var dynKey in dynJson) {
+        result[dynKey] = dynJson[dynKey];
+      }
+    }
+  }
+  return result;
+},
+
 Pins.prototype.toJSON = function() {
   var result = {};
   for (var physId in innerPins) {
     var curr = innerPins[physId];
-
-    result[physId] = {
-      id : physId
-    };
-
-
-    for (var dataKey in curr) {
-      // add static values
-      if (dataKey !== "dynPin") {
-        result[physId][dataKey] = curr[dataKey];
-      } else { // if this is Pin-Object: add its values
-        var dynJson = curr.dynPin.toJSON();
-        for (var dynKey in dynJson) {
-          result[physId][dynKey] = dynJson[dynKey];
-        }
-      }
-    }
+    result[physId] = this.populate(curr);
   }
 
   return result;

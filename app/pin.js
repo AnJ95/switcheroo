@@ -37,12 +37,19 @@ Pin.PWM = 1;
 Pin.IN = 2;
 
 Pin.prototype.contentChanged = function() {
-  var json = this.toJSON();
+  if (this.app.pins === undefined) {
+    return;
+  }
+  
+  var pin = this.app.pins.populate(this.app.pins.getByBCM(this.pinId));
+
   var result = {
     success : true,
     result : {}
   };
-  result.result[json.id] = json;
+
+  result.result[pin.id] = pin;
+
   this.app.emit("GetPins", result);
 };
 

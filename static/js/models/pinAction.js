@@ -13,13 +13,13 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
     return "rgb(" + this.json.color[0] + "," + this.json.color[1] + "," + this.json.color[2] + ")";
   },
   darkColor : function() {
-    return "rgb(" + Math.round(this.json.color[0]*0.8) + "," + Math.round(this.json.color[1]*0.8) + "," + Math.round(this.json.color[2]*0.8) + ")"
+    return "rgb(" + Math.round(this.json.color[0]*0.8) + "," + Math.round(this.json.color[1]*0.8) + "," + Math.round(this.json.color[2]*0.8) + ")";
   },
   icon : function() {
-    return this.json.icon
+    return this.json.icon;
   },
 
-  pinId : function() {
+  getPinBcm : function() {
     return this.json.action.pin;
   },
 
@@ -65,7 +65,7 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
       var pins = window.app.mvr.ModelManager.require("pins");
 
       function attachChildModel() {
-        that.pinModel = pins.getPinById(that.pinId());
+        that.pinModel = pins.getPinByBcm(that.getPinBcm());
         that.pinModel.attachObserver({
           // This happens whenever there are changes to this pin in the future
           notify : function() {
