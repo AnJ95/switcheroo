@@ -29,6 +29,25 @@
 	border-bottom-left-radius: 7px;
 }
 
+.btn__name {
+  position: absolute;
+  font-size: 10px;
+  height: 10px;
+  bottom: 15px;
+
+  margin: 0;
+  padding: 0;
+
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: 600;
+  color: #FFF;
+
+  font-smoothing: grayscale;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 .btn__toggle {
 	border-top-right-radius: 7px;
 	border-bottom-right-radius: 7px;
@@ -36,6 +55,7 @@
 
 .btn__icon {
 	float: left;
+  position: relative;
 	height: 100%;
 	width: 50%;
 }
@@ -43,34 +63,12 @@
 .btn__icon > div {
 	display: block;
 	margin: auto;
-	height: 60%;
+	height: 55px;
   position: relative;
-  top: 20%;
 	width: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-}
-
-.btn__caption {
-  width: 60%;
-	float: left;
-	height: 100%;
-}
-
-.btn__caption p {
-  text-align: left;
-	display: block;
-  position: relative;
-  top: 38%;
-	line-height: 80%;
-  font-size: 1.2em;
-
-	color: #FFF;
-
-	font-smoothing: grayscale;
-	-moz-osx-font-smoothing: grayscale;
-
 }
 
 .btn:before {

@@ -6,9 +6,10 @@ window.app.templates.pinActions.pinActionToggle = function (model) {
   return `<button class="half btn btn--toggle" style="background-color: ${model.color()}">
     <div class="btn__icon" style="box-shadow: 0 3px 0 0 ${model.darkColor()};">
       <div style="background-image: url(${model.icon()});"></div>
+      <p class="btn__name">${model.niceName()}</p>
     </div>
     <div class="btn__toggle">
       <span class="btn__toggle__icon"></span>
     </div>
   </button>`;
-}
+};

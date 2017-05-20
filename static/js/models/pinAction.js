@@ -15,6 +15,9 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
   darkColor : function() {
     return "rgb(" + Math.round(this.json.color[0]*0.8) + "," + Math.round(this.json.color[1]*0.8) + "," + Math.round(this.json.color[2]*0.8) + ")";
   },
+  niceName : function() {
+    return (this.json.niceName || "undef").toUpperCase();
+  },
   icon : function() {
     return this.json.icon;
   },
@@ -72,7 +75,7 @@ window.app.models.PinAction = window.app.mvr.Model.extend({
             that.notifyObservers();
           }
         });
-      };
+      }
 
       if (pins.isPopulated) {
         attachChildModel();
