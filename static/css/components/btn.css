@@ -14,12 +14,12 @@
 .btn {
   border: 0 none;
   margin-top: 0;
-  margin-bottom: 4%;
+  margin-bottom: 20px;
   padding: 0;
-	height: 20%;
+	height: 70px;
   width: 100%;
 	border-radius: 7px;
-  
+
   box-shadow: 0 3px 0 0 #CCC;
   position: relative;
 }

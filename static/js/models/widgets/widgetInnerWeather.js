@@ -72,7 +72,7 @@ window.app.models.widgets.WidgetInnerWeather = window.app.models.widgets.Widget.
     44:   "",//"partly cloudy",
     45:   "",//"thundershowers",
     46:   "",//"snow showers",
-    47:   "",//"isolated thundershowers",
+    47:   "scattered_showers_day_night",//"isolated thundershowers",
     3200: "not available"
   }
 });

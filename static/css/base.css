@@ -4,8 +4,8 @@
 	box-sizing: border-box;
 }
 
-html, body, .wrapper, .btn-section {
-	height: 100%;
+.wrapper {
+	margin-top: 70px;
 }
 
 /* Base */
@@ -19,8 +19,7 @@ body {
 
 section {
   position: relative;
-  top: 15%;
-  margin: 0 4%;
+  margin: 0 4% 0 4%;
 }
 
 b {
