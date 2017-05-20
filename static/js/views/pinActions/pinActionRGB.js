@@ -35,14 +35,14 @@ window.app.views.pinActions.PinActionRGB = window.app.mvr.View.extend({
   },
 
   renderUpdate : function() {
-    console.log("CHANGE");
-    function getCurr(colorName) {
-      return Math.round(this.model.subPinActions[colorName].pwm() * 255);
-    }
-    var that = this;
-
-    var col = "rgba("+getCurr.call(this,"red")+","+getCurr.call(this,"green")+","+getCurr.call(this,"blue")+",1)";
-    this.$el.find(".btn--rgb-static .btn--rgb__indicator").css("background-color", col);
+    // console.log("CHANGE");
+    // function getCurr(colorName) {
+    //   return Math.round(this.model.subPinActions[colorName].pwm() * 255);
+    // }
+    // var that = this;
+    //
+    // var col = "rgba("+getCurr.call(this,"red")+","+getCurr.call(this,"green")+","+getCurr.call(this,"blue")+",1)";
+    // this.$el.find(".btn--rgb-static .btn--rgb__indicator").css("background-color", col);
   },
 
   currentMotionStateName : "idle",

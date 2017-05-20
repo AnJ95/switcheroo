@@ -1,22 +1,68 @@
-.btn--rgb__half {
+.btn--rgb {
+  padding: 2px;
+}
+
+.btn--rgb__button {
   float: left;
-  width: 50%;
+  width: 16.66%;
   height: 100%;
   position: relative;
 }
 
 .btn.btn--rgb__indicator {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  bottom: 10px;
-  left: 10px;
+  top: 4px;
+  right: 4px;
+  bottom: 6px;
+  left: 4px;
   height: auto;
   width: auto;
   border-radius: 7px;
   margin: 0;
-  background-color: red;
 }
+
+.btn--rgb-static .btn--rgb__indicator,
+.btn--rgb-dynamic .btn--rgb__indicator {
+  background: red; /* not working, let's see some red */
+  background: -moz-linear-gradient( top ,
+      rgba(255, 0, 0, 0.7) 0%,
+      rgba(255, 255, 0, 0.7) 15%,
+      rgba(0, 255, 0, 0.7) 30%,
+      rgba(0, 255, 255, 0.7) 50%,
+      rgba(0, 0, 255, 0.7) 65%,
+      rgba(255, 0, 255, 0.7) 80%,
+      rgba(255, 0, 0, 0.7) 100%);
+  background: -webkit-gradient(linear,  left top,  left bottom,
+      color-stop(0%, rgba(255, 0, 0, 0.7)),
+      color-stop(15%, rgba(255, 255, 0, 0.7)),
+      color-stop(30%, rgba(0, 255, 0, 0.7)),
+      color-stop(50%, rgba(0, 255, 255, 0.7)),
+      color-stop(65%, rgba(0, 0, 255, 0.7)),
+      color-stop(80%, rgba(255, 0, 255, 0.7)),
+      color-stop(100%, rgba(255, 0, 0, 0.7)));
+
+  box-shadow: 0 3px 0 0 rgb(204, 0, 0);
+}
+
+.btn--rgb-off .btn--rgb__indicator {
+  background-color: #ccc;
+  box-shadow: 0 3px 0 0 #a0a0a0;
+}
+
+.btn--rgb-red .btn--rgb__indicator {
+  background-color: rgb(186, 48, 48);
+  box-shadow: 0 3px 0 0 rgb(149, 38, 38);
+}
+.btn--rgb-green .btn--rgb__indicator {
+  background-color: rgb(48, 156, 58);
+  box-shadow: 0 3px 0 0 rgb(38, 126, 46);
+}
+.btn--rgb-blue .btn--rgb__indicator {
+  background-color: rgb(48, 70, 156);
+  box-shadow: 0 3px 0 0 rgb(38, 56, 126);
+}
+
+
 
 .btn--rgb__indicator:after {
   content: "";
@@ -28,8 +74,8 @@
   left: 0;
   border-radius: 7px;
 
-  box-shadow: inset 0px 0px 5px 5px rgba(255,255,255,0.4);
-  border: 2px solid rgba(255, 255, 255, 0.6)
+  /*box-shadow: inset 0px 0px 5px 5px rgba(255,255,255,0.4);*/
+  border: 3px solid rgba(255, 255, 255, 0.3);
 }
 
 
