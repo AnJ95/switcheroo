@@ -35,6 +35,9 @@ window.app.templates.pinActions.pinActionRGB = function (model) {
     </div>
   </div>
   <div class="btn--rgb__invisible-trigger trigger-change"></div>
+  <div class="btn--rgb__invisible-trigger trigger-change-red"></div>
+  <div class="btn--rgb__invisible-trigger trigger-change-green"></div>
+  <div class="btn--rgb__invisible-trigger trigger-change-blue"></div>
   <div class="btn--rgb__invisible-trigger trigger-done"></div>
   </div>`;
 };

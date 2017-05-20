@@ -31,6 +31,7 @@
 
 .btn__name {
   position: absolute;
+
   font-size: 10px;
   height: 10px;
   bottom: 15px;
@@ -46,6 +47,13 @@
 
   font-smoothing: grayscale;
 	-moz-osx-font-smoothing: grayscale;
+
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+
+  -webkit-touch-callout: none;
 }
 
 .btn__toggle {
